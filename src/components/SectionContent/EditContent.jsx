@@ -16,7 +16,7 @@ const EditContent = () => {
           내용을 입력해주세요.
         </p>
       </div>
-      <div className="mt-14 ml-[780px]">
+      <div className="mt-14 ml-[1000px]">
         <button className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full mr-14">
           <p className="text-white">Edit</p>
         </button>
