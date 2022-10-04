@@ -12,18 +12,54 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-row ml-32 mt-20">
-          <div className="w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
-            <div className="w-[140px] h-[160px] bg-red-200"></div>
+          <div className="flex items-center w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
+            <div className="w-[140px] h-[160px] bg-[url(../../board-img/profile.jpg)] bg-center bg-cover ml-10"></div>
+            <div className="mt-24 ml-20">
+              <h1 className="text-lg font-semibold mb-3">제목 입니다.</h1>
+              <p className="text-right">2022.10.04</p>
+            </div>
           </div>
-          <div className="w-[400px] h-[230px] bg-white rounded-3xl drop-shadow-xl"></div>
+          <div className="flex items-center w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
+            <div className="w-[140px] h-[160px] bg-[url(../../board-img/profile.jpg)] bg-center bg-cover ml-10"></div>
+            <div className="mt-24 ml-20">
+              <h1 className="text-lg font-semibold mb-3">제목 입니다.</h1>
+              <p className="text-right">2022.10.04</p>
+            </div>
+          </div>
         </div>
+
         <div className="flex flex-row ml-32 mt-20">
-          <div className="w-[400px] h-[230px] bg-white mr-32 rounded-3xl"></div>
-          <div className="w-[400px] h-[230px] bg-white rounded-3xl"></div>
+          <div className="flex items-center w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
+            <div className="w-[140px] h-[160px] bg-[url(../../board-img/profile.jpg)] bg-center bg-cover ml-10"></div>
+            <div className="mt-24 ml-20">
+              <h1 className="text-lg font-semibold mb-3">제목 입니다.</h1>
+              <p className="text-right">2022.10.04</p>
+            </div>
+          </div>
+          <div className="flex items-center w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
+            <div className="w-[140px] h-[160px] bg-[url(../../board-img/profile.jpg)] bg-center bg-cover ml-10"></div>
+            <div className="mt-24 ml-20">
+              <h1 className="text-lg font-semibold mb-3">제목 입니다.</h1>
+              <p className="text-right">2022.10.04</p>
+            </div>
+          </div>
         </div>
+
         <div className="flex flex-row ml-32 mt-20">
-          <div className="w-[400px] h-[230px] bg-white mr-32 rounded-3xl"></div>
-          <div className="w-[400px] h-[230px] bg-white rounded-3xl"></div>
+          <div className="flex items-center w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
+            <div className="w-[140px] h-[160px] bg-[url(../../board-img/profile.jpg)] bg-center bg-cover ml-10"></div>
+            <div className="mt-24 ml-20">
+              <h1 className="text-lg font-semibold mb-3">제목 입니다.</h1>
+              <p className="text-right">2022.10.04</p>
+            </div>
+          </div>
+          <div className="flex items-center w-[400px] h-[230px] bg-white mr-32 rounded-3xl drop-shadow-xl">
+            <div className="w-[140px] h-[160px] bg-[url(../../board-img/profile.jpg)] bg-center bg-cover ml-10"></div>
+            <div className="mt-24 ml-20">
+              <h1 className="text-lg font-semibold mb-3">제목 입니다.</h1>
+              <p className="text-right">2022.10.04</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
