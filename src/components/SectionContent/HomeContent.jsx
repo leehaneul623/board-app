@@ -46,19 +46,17 @@ const Home = () => {
     )
   }
 
-  console.log(questionData)
-
   return (
     <div>
       <div className="w-[1200px] h-[1187px] pt-20">
-        <div className="flex flex-row w-[500px] h-[100px] ml-32 mb-[50px]">
+        <div className="flex w-[500px] h-[100px] ml-32 mb-[50px]">
           <div className="w-[100px] h-[100px] rounded-full bg-red-100"></div>
           <div className="w-[300px] bg-blue-200 ml-6">
             <h1>Lorem</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
-        <div className="flex flex-wrap ml-[40px]">
+        <div className="flex flex-wrap">
           {questionData.map((data, index) => (
             <QuestionBox
               key={index}
