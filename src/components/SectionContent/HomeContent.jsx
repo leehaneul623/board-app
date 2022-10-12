@@ -56,7 +56,7 @@ const Home = () => {
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap h-[870px] overflow-y-scroll">
           {questionData.map((data, index) => (
             <QuestionBox
               key={index}
