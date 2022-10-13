@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { url } from '../../utile/url'
+import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import QuestionBox from '../QuestionContent/QuestionBox'
 

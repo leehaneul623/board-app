@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { BsFillEmojiSmileFill, BsFillHeartFill } from 'react-icons/bs'
-import { backand_url } from '../../utile/url'
+import { backand_url } from '../../util/url'
 
 const SignUpContent = () => {
   const [memberId, setMemberId] = useState('')
