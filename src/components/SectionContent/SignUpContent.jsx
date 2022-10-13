@@ -16,20 +16,28 @@ const SignUpContent = () => {
       <form
         onSubmit={async (e) => {
           e.preventDefault()
-          alert('전송됨')
-          const data = await axios({
-            url: `${backand_url}/user/join`,
-            method: 'POST',
-            data: {
-              memberId,
-              password,
-              passwordconfirmation,
-              name,
-              nickname,
-            },
-          })
-          console.log(memberId, password, passwordconfirmation, name, nickname)
-          console.log(data)
+          try {
+            const data = await axios({
+              url: `${backand_url}/user/join`,
+              method: 'POST',
+              data: {
+                memberId,
+                password,
+                passwordconfirmation,
+                name,
+                nickname,
+              },
+            })
+            setMemberId('')
+            setPassword('')
+            setPasswordconfirmation('')
+            setName('')
+            setNickname('')
+            alert('회원가입이 완료되었습니다.')
+          } catch (e) {
+            console.log(e)
+            alert('회원가입에 실패하였습니다.')
+          }
         }}
       >
         <div className="flex flex-row text-2xl ml-32 mt-8">
