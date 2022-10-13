@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill } from 'react-icons/bs'
 import { BiEditAlt } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -11,9 +12,15 @@ const Header = () => {
           <BsSearch className="text-3xl mr-4" />
         </div>
         <div className="flex flex-row justify-between items-center w-[150px] h-[60px] mr-8">
-          <BsBoxArrowInRight className="text-[28px] text-gray-500" />
-          <BsPersonPlusFill className="text-[28px] text-gray-500" />
-          <BiEditAlt className="text-[28px] text-gray-500" />
+          <Link to="/login">
+            <BsBoxArrowInRight className="text-[28px] text-gray-500" />
+          </Link>
+          <Link to="/signup">
+            <BsPersonPlusFill className="text-[28px] text-gray-500" />
+          </Link>
+          <Link to="/write">
+            <BiEditAlt className="text-[28px] text-gray-500" />
+          </Link>
         </div>
       </div>
     </div>
