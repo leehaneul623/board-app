@@ -7,9 +7,9 @@ import { backand_url } from '../../util/url'
 const SignUpContent = () => {
   const [memberId, setMemberId] = useState('')
   const [password, setPassword] = useState('')
-  const [passwordconfirmation, setPasswordconfirmation] = useState('')
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [name, setName] = useState('')
-  const [nickname, setNickname] = useState('')
+  const [nickName, setNickName] = useState('')
 
   return (
     <div className="w-[1200px] h-[1187px] pt-20">
@@ -23,16 +23,16 @@ const SignUpContent = () => {
               data: {
                 memberId,
                 password,
-                passwordconfirmation,
+                passwordConfirmation,
                 name,
-                nickname,
+                nickName,
               },
             })
             setMemberId('')
             setPassword('')
-            setPasswordconfirmation('')
+            setPasswordConfirmation('')
             setName('')
-            setNickname('')
+            setNickName('')
             alert('회원가입이 완료되었습니다.')
           } catch (e) {
             console.log(e)
@@ -75,9 +75,9 @@ const SignUpContent = () => {
             type="password"
             className="w-[1024px] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Password"
-            value={passwordconfirmation}
+            value={passwordConfirmation}
             onChange={(e) => {
-              setPasswordconfirmation(e.target.value)
+              setPasswordConfirmation(e.target.value)
             }}
           ></input>
         </div>
@@ -99,9 +99,9 @@ const SignUpContent = () => {
             type="text"
             className="w-[1024px] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="NickName"
-            value={nickname}
+            value={nickName}
             onChange={(e) => {
-              setNickname(e.target.value)
+              setNickName(e.target.value)
             }}
           ></input>
         </div>
