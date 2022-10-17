@@ -12,21 +12,25 @@ const WriteContent = () => {
         <div></div>
         <select className="select select-info w-full max-w-xs">
           <option disabled selected>
-            Select language
+            Category
           </option>
           <option>English</option>
           <option>Japanese</option>
           <option>Italian</option>
+          <option>Italian</option>
+          <option>Italian</option>
         </select>
       </div>
-      <div className="flex items-center w-[1024px] h-[75px] bg-white rounded-3xl ml-32 mt-10">
-        <p className="text-lg text-gray-400 ml-8">제목을 입력해주세요.</p>
-      </div>
-      <div className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32">
-        <p className="text-lg text-gray-400 ml-8 mt-16 pt-10">
-          내용을 입력해주세요.
-        </p>
-      </div>
+      <input
+        type="text"
+        className="flex items-center w-[1024px] h-[75px] bg-white rounded-3xl ml-32 mt-10 pl-4"
+        placeholder="제목을 입력해주세요."
+      ></input>
+      <input
+        type="text"
+        className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-14 pl-4"
+        placeholder="내용을 입력해주세요."
+      ></input>
       <button className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full mt-14 ml-[1000px]">
         <p className="text-white">Submit</p>
       </button>

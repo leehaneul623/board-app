@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const DetailContent = () => {
   return (
@@ -18,11 +19,13 @@ const DetailContent = () => {
         <p className="text-lg text-gray-400 ml-8">내용 ...</p>
       </div>
       <div className="flex flex-row mt-10">
-        <div className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 ">
-          <p className="text-lg text-gray-400 ml-8">
-            댓글을 작성하려면 로그인을 해주세요.
-          </p>
-        </div>
+        <Link to="/login">
+          <div className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 ">
+            <p className="text-lg text-gray-400 ml-8">
+              댓글을 작성하려면 로그인을 해주세요.
+            </p>
+          </div>
+        </Link>
         <button className="w-[150px] h-[58px] bg-[#ABDEFF] rounded-full ml-6">
           <p className="text-white">Submit</p>
         </button>

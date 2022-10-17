@@ -9,7 +9,7 @@ const SignUpContent = () => {
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [name, setName] = useState('')
-  const [nickName, setNickName] = useState('')
+  const [nickname, setNickname] = useState('')
 
   return (
     <div className="w-[1200px] h-[1187px] pt-20">
@@ -25,14 +25,14 @@ const SignUpContent = () => {
                 password,
                 passwordConfirmation,
                 name,
-                nickName,
+                nickname,
               },
             })
             setMemberId('')
             setPassword('')
             setPasswordConfirmation('')
             setName('')
-            setNickName('')
+            setNickname('')
             alert('회원가입이 완료되었습니다.')
           } catch (e) {
             console.log(e)
@@ -99,9 +99,9 @@ const SignUpContent = () => {
             type="text"
             className="w-[1024px] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="NickName"
-            value={nickName}
+            value={nickname}
             onChange={(e) => {
-              setNickName(e.target.value)
+              setNickname(e.target.value)
             }}
           ></input>
         </div>
