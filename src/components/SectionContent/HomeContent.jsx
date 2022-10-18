@@ -57,7 +57,7 @@ const Home = () => {
             <p>익명으로 편하게 소통 할 수 있습니다 :)</p>
           </div>
         </div>
-        <div className="flex flex-wrap h-[870px] overflow-y-scroll">
+        <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">
           {questionData.map((data, index) => (
             <QuestionBox
               key={index}

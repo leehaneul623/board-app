@@ -26,11 +26,11 @@ const WriteContent = () => {
         className="flex items-center w-[1024px] h-[75px] bg-white rounded-3xl ml-32 mt-10 pl-4"
         placeholder="제목을 입력해주세요."
       ></input>
-      <input
+      <textarea
         type="text"
-        className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-14 pl-4"
+        className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-14 pl-4 p-4"
         placeholder="내용을 입력해주세요."
-      ></input>
+      ></textarea>
       <button className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full mt-14 ml-[1000px]">
         <p className="text-white">Submit</p>
       </button>
