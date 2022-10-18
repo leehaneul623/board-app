@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import QuestionBox from '../QuestionContent/QuestionBox'
-import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -17,6 +16,7 @@ const Home = () => {
         url: `${url}/question/list`,
         method: 'GET',
       })
+      console.log(json.data)
 
       setQuestionData(json.data)
       setIsLoading(false)
@@ -57,17 +57,16 @@ const Home = () => {
             <p>익명으로 편하게 소통 할 수 있습니다 :)</p>
           </div>
         </div>
-        <div className="h-[870px] overflow-y-scroll">
-          <Link to="/detail" className="flex flex-wrap">
-            {questionData.map((data, index) => (
-              <QuestionBox
-                key={index}
-                questionTitle={data.title}
-                questionContent={data.content}
-                questionRegDate={data.regDate}
-              />
-            ))}
-          </Link>
+        <div className="flex flex-wrap h-[870px] overflow-y-scroll">
+          {questionData.map((data, index) => (
+            <QuestionBox
+              key={index}
+              questionId={data.id}
+              questionTitle={data.title}
+              questionContent={data.content}
+              questionRegDate={data.regDate}
+            />
+          ))}
         </div>
       </div>
     </div>

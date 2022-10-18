@@ -1,11 +1,16 @@
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
+import { userState } from '../../Recoil'
 import { backand_url } from '../../util/url'
 
 const LoginContent = () => {
   const [memberId, setMemberId] = useState('')
   const [password, setPassword] = useState('')
+  const [user, setUser] = useRecoilState(userState)
+  const navigate = useNavigate()
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -23,9 +28,10 @@ const LoginContent = () => {
             })
             setMemberId('')
             setPassword('')
+            setUser(data, data)
+            navigate('/')
             alert('로그인이 완료되었습니다.')
           } catch (e) {
-            console.log(e)
             alert('로그인에 실패하였습니다.')
           }
         }}

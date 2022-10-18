@@ -1,7 +1,55 @@
+import axios from 'axios'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { url } from '../../util/url'
+import { CgSpinner } from 'react-icons/cg'
+import DetailData from '../DetailContent/DetailData'
 
 const DetailContent = () => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [detailData, setDetailData] = useState([])
+
+  const { questionId } = useParams()
+
+  const detailContents = async () => {
+    try {
+      const json = await axios({
+        url: `${url}/question/detail/${questionId}`,
+        method: 'GET',
+      })
+
+      setDetailData(json.data)
+      setIsLoading(false)
+    } catch (e) {
+      setError(e)
+    }
+  }
+
+  useEffect(() => {
+    detailContents()
+  }, [])
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <p className="text-rose-500 text-2xl">{error.message}</p>
+      </div>
+    )
+  }
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <p className="text-rose-500 text-2xl">
+          <CgSpinner className="m-auto mb-2 animate-spin text-3xl" />
+          Loading
+        </p>
+      </div>
+    )
+  }
+
   return (
     <div className="w-[1200px] h-[1187px] pt-20">
       <div className="ml-[780px]">
@@ -12,12 +60,10 @@ const DetailContent = () => {
           <p className="text-white">Delete</p>
         </button>
       </div>
-      <div className="flex items-center w-[1024px] h-[75px] bg-white rounded-3xl ml-32 mt-10">
-        <p className="text-lg text-gray-400 ml-8">제목 ...</p>
-      </div>
-      <div className="flex items-center w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-10">
-        <p className="text-lg text-gray-400 ml-8">내용 ...</p>
-      </div>
+      <DetailData
+        questionTitle={detailData.title}
+        questionContent={detailData.content}
+      />
       <div className="flex flex-row mt-10">
         <Link to="/login">
           <div className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 ">
