@@ -67,7 +67,7 @@ const SignUpContent = () => {
             onChange={(e) => {
               setPassword(e.target.value)
             }}
-          ></input>
+          />
         </div>
         <div className="ml-32 mt-10">
           <div className="ml-4 mb-2 text-lg">Password Confirmation</div>
@@ -79,7 +79,7 @@ const SignUpContent = () => {
             onChange={(e) => {
               setPasswordConfirmation(e.target.value)
             }}
-          ></input>
+          />
         </div>
         <div className="ml-32 mt-10">
           <div className="ml-4 mb-2 text-lg">Name</div>
@@ -91,7 +91,7 @@ const SignUpContent = () => {
             onChange={(e) => {
               setName(e.target.value)
             }}
-          ></input>
+          />
         </div>
         <div className="ml-32 mt-10">
           <div className="ml-4 mb-2 text-lg">NickName</div>
@@ -103,7 +103,7 @@ const SignUpContent = () => {
             onChange={(e) => {
               setNickname(e.target.value)
             }}
-          ></input>
+          />
         </div>
         <button
           type="submit"
