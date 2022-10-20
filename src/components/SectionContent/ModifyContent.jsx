@@ -4,9 +4,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { BsChatDots } from 'react-icons/bs'
 import { CgSpinner } from 'react-icons/cg'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../util/url'
-import DetailModify from '../DetailContent/DetailModify'
 
 const ModifyContent = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -14,6 +13,7 @@ const ModifyContent = () => {
   const [detailData, setDetailData] = useState([])
   const [titleValue, setTitleValue] = useState('')
   const [contentValue, setContentValue] = useState('')
+  const navigate = useNavigate()
 
   const { questionId } = useParams()
 
@@ -57,6 +57,7 @@ const ModifyContent = () => {
     } else {
       alert('수정이 완료되었습니다.')
       postUpDate()
+      navigate('/')
     }
   }
 
@@ -93,19 +94,23 @@ const ModifyContent = () => {
             setTitleValue(e.target.value)
           }}
         />
-
-        <div className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-10 overflow-y-scroll">
-          <p className="text-lg p-4">{detailData.content}</p>
-        </div>
+        <textarea
+          type="text"
+          className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-10 p-4 text-lg overflow-y-scroll"
+          value={contentValue}
+          onChange={(e) => {
+            setContentValue(e.target.value)
+          }}
+        ></textarea>
       </div>
-      <div className="mt-14 ml-[1000px]">
+      <div className="flex mt-14 ml-[770px]">
         <button
           onClick={postCheck}
-          className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full mr-14"
+          className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full"
         >
           <p className="text-white">Edit</p>
         </button>
-        <button className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full">
+        <button className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full ml-14">
           <p className="text-white">Delete</p>
         </button>
       </div>
