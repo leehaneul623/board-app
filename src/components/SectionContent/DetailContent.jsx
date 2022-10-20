@@ -53,9 +53,11 @@ const DetailContent = () => {
   return (
     <div className="w-[1200px] h-[1187px] pt-20">
       <div className="ml-[780px]">
-        <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
-          <p className="text-white">Edit</p>
-        </button>
+        <Link to={`/modify/${questionId}`}>
+          <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
+            <p className="text-white">Edit</p>
+          </button>
+        </Link>
         <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full">
           <p className="text-white">Delete</p>
         </button>

@@ -10,7 +10,7 @@ const DetailData = ({ questionTitle, questionContent }) => {
   const boxHeight = () => {
     setContentHeight(ref.current.offsetHeight)
   }
-  console.log(contentHeight)
+
   useEffect(() => {
     boxHeight()
   }, [ref])

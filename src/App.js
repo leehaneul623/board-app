@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Detail from './routes/Detail'
-import Edit from './routes/Edit'
 import Home from './routes/Home'
 import Login from './routes/Login'
+import Modify from './routes/Modify'
 import SignUp from './routes/SignUp'
 import Write from './routes/Write'
 
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/write" element={<Write />}></Route>
-          <Route path="/edit" element={<Edit />}></Route>
+          <Route path="/modify/:questionId" element={<Modify />}></Route>
           <Route path="/detail/:questionId" element={<Detail />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
