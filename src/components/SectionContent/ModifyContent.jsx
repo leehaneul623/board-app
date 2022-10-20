@@ -32,7 +32,6 @@ const ModifyContent = () => {
       setError(e)
     }
   }
-  console.log(detailData.title)
 
   useEffect(() => {
     editContent()
@@ -41,6 +40,17 @@ const ModifyContent = () => {
   const postUpDate = async () => {
     const data = await axios({
       url: `${url}/question/modify/${questionId}`,
+      method: 'POST',
+      data: {
+        title: titleValue,
+        content: contentValue,
+      },
+    })
+  }
+
+  const postDelete = async () => {
+    const data = await axios({
+      url: `${url}/question/delete/${questionId}`,
       method: 'POST',
       data: {
         title: titleValue,
@@ -59,6 +69,12 @@ const ModifyContent = () => {
       postUpDate()
       navigate('/')
     }
+  }
+
+  const deleteCheck = () => {
+    alert('게시물 삭제가 완료 되었습니다.')
+    postDelete()
+    navigate('/')
   }
 
   if (error) {
@@ -110,7 +126,10 @@ const ModifyContent = () => {
         >
           <p className="text-white">Edit</p>
         </button>
-        <button className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full ml-14">
+        <button
+          onClick={deleteCheck}
+          className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full ml-14"
+        >
           <p className="text-white">Delete</p>
         </button>
       </div>

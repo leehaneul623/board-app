@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import DetailData from '../DetailContent/DetailData'
@@ -11,6 +11,7 @@ const DetailContent = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [detailData, setDetailData] = useState([])
+  const navigate = useNavigate()
 
   const { questionId } = useParams()
 
@@ -31,6 +32,19 @@ const DetailContent = () => {
   useEffect(() => {
     detailContents()
   }, [])
+
+  const postDelete = async () => {
+    const data = await axios({
+      url: `${url}/question/delete/${questionId}`,
+      method: 'POST',
+    })
+  }
+
+  const deleteCheck = () => {
+    alert('게시물 삭제가 완료 되었습니다.')
+    postDelete()
+    navigate('/')
+  }
 
   if (error) {
     return (
@@ -58,7 +72,10 @@ const DetailContent = () => {
             <p className="text-white">Edit</p>
           </button>
         </Link>
-        <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full">
+        <button
+          onClick={deleteCheck}
+          className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+        >
           <p className="text-white">Delete</p>
         </button>
       </div>
