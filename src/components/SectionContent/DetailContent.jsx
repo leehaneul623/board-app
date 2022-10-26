@@ -6,12 +6,17 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import DetailData from '../DetailContent/DetailData'
+import { useRecoilValue } from 'recoil'
+import { userState } from '../../Recoil'
 
 const DetailContent = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [detailData, setDetailData] = useState([])
   const navigate = useNavigate()
+  const userInfo = useRecoilValue(userState)
+  const [answerValue, setAnswerValue] = useState('')
+  const [answerList, setAnswerList] = useState([])
 
   const { questionId } = useParams()
 
@@ -23,6 +28,7 @@ const DetailContent = () => {
       })
 
       setDetailData(json.data)
+      setAnswerList(json.data.answerList)
       setIsLoading(false)
     } catch (e) {
       setError(e)
@@ -34,9 +40,9 @@ const DetailContent = () => {
   }, [])
 
   const postDelete = async () => {
-    const data = await axios({
+    await axios({
       url: `${url}/question/delete/${questionId}`,
-      method: 'POST',
+      method: 'DELETE',
     })
   }
 
@@ -44,6 +50,27 @@ const DetailContent = () => {
     alert('게시물 삭제가 완료 되었습니다.')
     postDelete()
     navigate('/')
+  }
+
+  const answerCreate = async () => {
+    await axios({
+      url: `${url}/answer/create/${questionId}`,
+      method: `POST`,
+      data: {
+        nickName: userInfo.data.nickname,
+        content: answerValue,
+      },
+    })
+  }
+
+  const answerCheck = () => {
+    if (answerValue === '') {
+      alert('댓글 내용을 입력해주세요.')
+    } else {
+      answerCreate()
+      alert('작성 완료')
+      detailContents()
+    }
   }
 
   if (error) {
@@ -65,7 +92,7 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="w-[1200px] h-[1187px] pt-20">
+    <div className="w-[1200px] py-20">
       <div className="ml-[780px]">
         <Link to={`/modify/${questionId}`}>
           <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
@@ -84,22 +111,38 @@ const DetailContent = () => {
         questionContent={detailData.content}
       />
       <div className="flex flex-row mt-10">
-        <Link to="/login">
-          <div className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 ">
-            <p className="text-lg text-gray-400 ml-8">
-              댓글을 작성하려면 로그인을 해주세요.
-            </p>
-          </div>
-        </Link>
-        <button className="w-[150px] h-[58px] bg-[#ABDEFF] rounded-full ml-6">
+        <input
+          type="text"
+          placeholder="댓글을 작성하려면 로그인을 해주세요."
+          className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 p-6 mb-12"
+          onClick={() => {
+            if (userInfo.name === '') {
+              alert('댓글을 작성하려면 로그인을 해주세요.')
+            }
+          }}
+          onChange={(e) => {
+            setAnswerValue(e.target.value)
+          }}
+        />
+        <button
+          className="w-[150px] h-[58px] bg-[#ABDEFF] rounded-full ml-6"
+          onClick={() => {
+            answerCheck()
+          }}
+        >
           <p className="text-white">Submit</p>
         </button>
       </div>
-      <div className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 mt-10">
-        <p className="ml-8 border-r-[3px] whitespace-pre">Miki </p>
-      </div>
-      <div className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 mt-10">
-        <p className="ml-8 border-r-[3px] whitespace-pre">Noma </p>
+      <div>
+        {answerList.map((data, index) => (
+          <div
+            key={index}
+            className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 p-6 mt-6"
+          >
+            <b className="pr-6 border-r-2">{data.nickname}</b>
+            <p className="pl-6">{data.content}</p>
+          </div>
+        ))}
       </div>
     </div>
   )
