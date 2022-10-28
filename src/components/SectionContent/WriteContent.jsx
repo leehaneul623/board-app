@@ -15,7 +15,7 @@ const WriteContent = () => {
   const writeCreate = async () => {
     const json = await axios({
       url: `${url}/question/write?title=${writeData.writeTitle}&content=${writeData.writeContent}`,
-      method: 'POST',
+      method: 'GET',
     })
     if (json.data === '작성완료') {
       alert('성공적으로 작성되었습니다')

@@ -68,7 +68,7 @@ const DetailContent = () => {
       alert('댓글 내용을 입력해주세요.')
     } else {
       answerCreate()
-      alert('작성 완료')
+      alert('댓글 작성이 완료되었습니다.')
       detailContents()
     }
   }

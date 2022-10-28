@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Detail from './routes/Detail'
 import Home from './routes/Home'
+import Keyword from './routes/Keyword'
 import Login from './routes/Login'
 import Modify from './routes/Modify'
 import SignUp from './routes/SignUp'
@@ -17,6 +18,7 @@ function App() {
           <Route path="/detail/:questionId" element={<Detail />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/keyword/:keyword" element={<Keyword />}></Route>
         </Routes>
       </Router>
     </div>
