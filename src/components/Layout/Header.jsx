@@ -21,7 +21,7 @@ const Header = () => {
           <form
             className="flex items-center justify-between"
             onSubmit={(e) => {
-              e.preventDefault()
+              nav(`/keyword/${search}`)
             }}
           >
             <input
@@ -31,17 +31,7 @@ const Header = () => {
                 setSearch(e.target.value)
               }}
             />
-            <button
-              onClick={(e) => {
-                nav(`/keyword/${search}`)
-                /**
-                 검색 키워드로 api에서 검색 결과 가져오기
-                 setQuestionList(검색결과) 
-                */
-                console.log(search)
-                setSearch('')
-              }}
-            >
+            <button>
               <BsSearch className="text-3xl mr-4" />
             </button>
           </form>

@@ -9,9 +9,7 @@ const KeywordContent = () => {
   const { keyword } = useParams()
   const [loading, setLoading] = useState(true)
 
-  console.log('keyword' + keyword)
   useEffect(() => {
-    setSearch(keyword)
     axios
       .get(`http://localhost:8081/question/search`, {
         params: {
@@ -40,8 +38,7 @@ const KeywordContent = () => {
         <div className="flex w-[500px] h-[100px] ml-32 mb-[60px]">
           <div className="w-[150px] h-[150px] bg-[url(../../board-img/logo.jpg)] bg-center bg-cover"></div>
           <div className="w-[300px] ml-6 mt-12">
-            <p>익명 소통 커뮤니티 입니다.</p>
-            <p>익명으로 편하게 소통 할 수 있습니다 :)</p>
+            <p>현재 검색어는 "{keyword}" 입니다</p>
           </div>
         </div>
         <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">
