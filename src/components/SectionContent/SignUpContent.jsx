@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { BsFillEmojiSmileFill, BsFillHeartFill } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 import { backand_url } from '../../util/url'
 
 const SignUpContent = () => {
@@ -10,6 +11,7 @@ const SignUpContent = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [name, setName] = useState('')
   const [nickname, setNickname] = useState('')
+  const navigate = useNavigate()
 
   return (
     <div className="w-[1200px] h-[1187px] pt-20">
@@ -35,9 +37,9 @@ const SignUpContent = () => {
             setNickname('')
             alert('회원가입이 완료되었습니다.')
           } catch (e) {
-            console.log(e)
             alert('회원가입에 실패하였습니다.')
           }
+          navigate('/')
         }}
       >
         <div className="flex flex-row text-2xl ml-32 mt-8">

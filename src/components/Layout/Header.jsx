@@ -1,16 +1,22 @@
 import React from 'react'
 import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill } from 'react-icons/bs'
 import { BiEditAlt } from 'react-icons/bi'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useAsyncValue, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../Recoil'
 import { useState } from 'react'
 import { searchState } from '../../Recoil/searchState'
-import { useEffect } from 'react'
 
 const Header = () => {
-  const nav = useNavigate()
+  const navigate = useNavigate()
   const [search, setSearch] = useState('')
+  const [user, setUser] = useRecoilState(userState)
+  const userInfo = useAsyncValue(useState)
+
+  const loginCheck = () => {
+    navigate('/login')
+  }
+
   return (
     <div className="w-full h-20 bg-[#F6F3F3] shadow-xl">
       <div className="flex flex-row justify-between items-center w-full h-20">
@@ -21,7 +27,7 @@ const Header = () => {
           <form
             className="flex items-center justify-between"
             onSubmit={(e) => {
-              nav(`/keyword/${search}`)
+              navigate(`/keyword/${search}`)
             }}
           >
             <input
@@ -37,9 +43,13 @@ const Header = () => {
           </form>
         </div>
         <div className="flex flex-row justify-between items-center w-[150px] h-[60px] mr-8">
-          <Link to="/login">
+          <button
+            onClick={() => {
+              loginCheck()
+            }}
+          >
             <BsBoxArrowInRight className="text-[28px] text-gray-500" />
-          </Link>
+          </button>
           <Link to="/signup">
             <BsPersonPlusFill className="text-[28px] text-gray-500" />
           </Link>
