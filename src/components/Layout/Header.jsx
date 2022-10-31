@@ -5,17 +5,11 @@ import { Link, useAsyncValue, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../Recoil'
 import { useState } from 'react'
-import { searchState } from '../../Recoil/searchState'
 
 const Header = () => {
   const navigate = useNavigate()
   const [search, setSearch] = useState('')
   const [user, setUser] = useRecoilState(userState)
-  const userInfo = useAsyncValue(useState)
-
-  const loginCheck = () => {
-    navigate('/login')
-  }
 
   return (
     <div className="w-full h-20 bg-[#F6F3F3] shadow-xl">
@@ -42,19 +36,23 @@ const Header = () => {
             </button>
           </form>
         </div>
-        <div className="flex flex-row justify-between items-center w-[150px] h-[60px] mr-8">
-          <button
-            onClick={() => {
-              loginCheck()
-            }}
-          >
-            <BsBoxArrowInRight className="text-[28px] text-gray-500" />
-          </button>
+        <div className="flex flex-row justify-end items-center w-[150px] h-[60px] mr-8">
+          {user == null ? (
+            <button
+              onClick={() => {
+                navigate('/login')
+              }}
+            >
+              <BsBoxArrowInRight className="text-[28px] text-gray-500" />
+            </button>
+          ) : (
+            ''
+          )}
           <Link to="/signup">
-            <BsPersonPlusFill className="text-[28px] text-gray-500" />
+            <BsPersonPlusFill className="text-[28px] text-gray-500 ml-6" />
           </Link>
           <Link to="/write">
-            <BiEditAlt className="text-[28px] text-gray-500" />
+            <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
           </Link>
         </div>
       </div>

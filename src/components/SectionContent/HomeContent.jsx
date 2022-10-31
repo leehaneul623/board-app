@@ -4,17 +4,14 @@ import { useEffect } from 'react'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import QuestionBox from '../QuestionContent/QuestionBox'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { userState } from '../../Recoil'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [questionData, setQuestionData] = useState([])
-  const [user, setUser] = useRecoilState(userState)
   const userInfo = useRecoilValue(userState)
-
-  console.log(userInfo.data.nickname)
 
   const questionList = async () => {
     try {
@@ -57,7 +54,7 @@ const Home = () => {
         <div className="flex w-[500px] h-[100px] ml-32 mb-[60px]">
           <div className="w-[150px] h-[150px] bg-[url(../../board-img/logo.jpg)] bg-center bg-cover"></div>
           <div className="w-[300px] ml-6 mt-12">
-            <b>{`${userInfo.data.nickname}`}님</b>
+            {userInfo == null ? '' : <b>{`${userInfo.data.nickname}`}님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
             <p>익명으로 편하게 소통 할 수 있습니다 :)</p>
           </div>
