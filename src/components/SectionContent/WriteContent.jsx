@@ -10,23 +10,33 @@ const WriteContent = () => {
   const [writeData, setWriteData] = useState({
     writeTitle: '',
     writeContent: '',
+    writeCategory: '',
   })
+  const [item, setItem] = useState('none')
 
-  const writeCreate = async () => {
+  const writeCreate = async (event) => {
+    setWriteData(() => {
+      return {
+        writeTitle: '',
+        writeContent: '',
+      }
+    })
     const json = await axios({
-      url: `${url}/question/write?title=${writeData.writeTitle}&content=${writeData.writeContent}`,
+      url: `${url}/question/write?title=${writeData.writeTitle}&content=${writeData.writeContent}&category=${item}`,
       method: 'GET',
     })
-    if (json.data === '작성완료') {
+    if (json.data === '작성완료' && item != 'none') {
       alert('성공적으로 작성되었습니다')
-      setWriteData(() => {
-        return {
-          writeTitle: '',
-          writeContent: '',
-        }
-      })
+
       navigate('/')
+    } else if (item === 'none') {
+      alert('항목을 다시 확인해주세요.')
     }
+  }
+
+  const option = (e) => {
+    console.log(e.target.value)
+    setItem(e.target.value)
   }
 
   return (
@@ -36,14 +46,16 @@ const WriteContent = () => {
           <BsChatDots />
           <p className="ml-4">자유롭게 작성해주세요.</p>
         </div>
-        <div></div>
-        <select className="select select-info w-full max-w-xs">
-          <option disabled>Category</option>
-          <option value="a">?</option>
+        <select
+          className="select select-info w-full max-w-xs"
+          onChange={option}
+        >
+          <option value="none">Category</option>
+          <option value="Knowledge">Knowledge</option>
           <option value="Music">Music</option>
           <option value="Exercise">Exercise</option>
           <option value="Cooking">Cooking</option>
-          <option value="b">?</option>
+          <option value="Etc">Etc</option>
         </select>
       </div>
       <input

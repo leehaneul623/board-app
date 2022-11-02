@@ -3,7 +3,7 @@ import { FaDribbble } from 'react-icons/fa'
 import { FiMusic } from 'react-icons/fi'
 import { BiBookBookmark } from 'react-icons/bi'
 import { BsCupStraw, BsPeopleFill, BsBoxArrowLeft } from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { userState } from '../../Recoil'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
@@ -15,7 +15,9 @@ const Menu = () => {
     <div className="w-[80px] h-[950px] rounded-full mt-6 bg-gradient-to-b from-[#ABDEFF] to-[#49A9E8] opacity-80 py-[100px]">
       <div className="flex flex-col justify-between  h-full space-y-14 items-center text-white font-bold text-4xl">
         <div className="flex flex-col h-[500px] justify-between items-center">
-          <BiBookBookmark />
+          <Link to="/category/:Knowledge">
+            <BiBookBookmark />
+          </Link>
           <FiMusic />
           <FaDribbble />
           <BsCupStraw />
