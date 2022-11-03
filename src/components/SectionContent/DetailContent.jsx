@@ -101,17 +101,40 @@ const DetailContent = () => {
   return (
     <div className="w-[1200px] py-20">
       <div className="ml-[780px]">
-        <Link to={`/modify/${questionId}`}>
-          <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
+        {user == null ? (
+          <button
+            className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+            onClick={() => {
+              alert('접근 권한이 없습니다.')
+              navigate('/login')
+            }}
+          >
             <p className="text-white">Edit</p>
           </button>
-        </Link>
-        <button
-          onClick={deleteCheck}
-          className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
-        >
-          <p className="text-white">Delete</p>
-        </button>
+        ) : (
+          <Link to={`/modify/${questionId}`}>
+            <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
+              <p className="text-white">Edit</p>
+            </button>
+          </Link>
+        )}
+        {user == null ? (
+          <button
+            className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+            onClick={() => {
+              alert('접근 권한이 없습니다.')
+            }}
+          >
+            <p className="text-white">Delete</p>
+          </button>
+        ) : (
+          <button
+            onClick={deleteCheck}
+            className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+          >
+            <p className="text-white">Delete</p>
+          </button>
+        )}
       </div>
       <DetailData
         questionTitle={detailData.title}

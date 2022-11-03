@@ -37,7 +37,6 @@ const Header = () => {
             </button>
           </form>
         </div>
-
         <ul className="flex flex-row justify-end items-center w-[150px] h-[60px] mr-8">
           <li className="group relative h-[28px]">
             {user == null ? (
@@ -55,7 +54,6 @@ const Header = () => {
               ''
             )}
           </li>
-
           <li className="group relative h-[28px]">
             <Link to="/signup">
               <BsPersonPlusFill className="text-[28px] text-gray-500 ml-6" />
@@ -64,14 +62,26 @@ const Header = () => {
               </span>
             </Link>
           </li>
-
           <li className="group relative h-[28px]">
-            <Link to="/write">
-              <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
-              <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
-                Write
-              </span>
-            </Link>
+            {user == null ? (
+              <button
+                onClick={() => {
+                  alert('로그인 후 이용해 주세요.')
+                }}
+              >
+                <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
+                <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
+                  Write
+                </span>
+              </button>
+            ) : (
+              <Link to="/write">
+                <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
+                <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
+                  Write
+                </span>
+              </Link>
+            )}
           </li>
         </ul>
       </div>
