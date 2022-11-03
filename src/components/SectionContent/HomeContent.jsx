@@ -6,6 +6,7 @@ import { CgSpinner } from 'react-icons/cg'
 import QuestionBox from '../QuestionContent/QuestionBox'
 import { useRecoilValue } from 'recoil'
 import { userState } from '../../Recoil'
+import { BsFillEmojiSmileFill } from 'react-icons/bs'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -54,9 +55,12 @@ const Home = () => {
         <div className="flex w-[500px] h-[100px] ml-32 mb-[60px]">
           <div className="w-[150px] h-[150px] bg-[url(../../board-img/logo.jpg)] bg-center bg-cover"></div>
           <div className="w-[300px] ml-6 mt-12">
-            {userInfo == null ? '' : <b>{`${userInfo.data.nickname}`}님</b>}
+            {userInfo == null ? '' : <b>" {`${userInfo.data.nickname}`} "님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
-            <p>익명으로 편하게 소통 할 수 있습니다 :)</p>
+            <div className="flex justify-between">
+              <p>익명으로 편하게 소통 할 수 있습니다.</p>
+              <BsFillEmojiSmileFill className="text-2xl" />
+            </div>
           </div>
         </div>
         <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">
