@@ -27,6 +27,7 @@ const Header = () => {
             <input
               type="text"
               className="w-[530px] h-[50px] p-4 bg-[#F6F3F3] rounded-3xl outline-none"
+              placeholder="Search..."
               onChange={(e) => {
                 setSearch(e.target.value)
               }}

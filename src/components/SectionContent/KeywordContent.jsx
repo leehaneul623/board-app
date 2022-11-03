@@ -39,7 +39,7 @@ const KeywordContent = () => {
         <div className="flex w-[500px] h-[100px] ml-32 mb-[60px]">
           <div className="w-[150px] h-[150px] bg-[url(../../board-img/logo.jpg)] bg-center bg-cover"></div>
           <div className="w-[300px] ml-6 mt-12">
-            <p>현재 검색어는 "{keyword}" 입니다.</p>
+            <p>현재 검색어는 " {keyword} " 입니다.</p>
           </div>
         </div>
         <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">

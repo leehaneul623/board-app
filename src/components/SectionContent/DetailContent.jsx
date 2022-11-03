@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import DetailData from '../DetailContent/DetailData'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { userState } from '../../Recoil'
 
 const DetailContent = () => {
@@ -17,6 +17,9 @@ const DetailContent = () => {
   const userInfo = useRecoilValue(userState)
   const [answerValue, setAnswerValue] = useState('')
   const [answerList, setAnswerList] = useState([])
+  const [titleValue, setTitleValue] = useState('')
+  const [contentValue, setContentValue] = useState('')
+  const [user, setUser] = useRecoilState(userState)
 
   const { questionId } = useParams()
 
@@ -40,9 +43,13 @@ const DetailContent = () => {
   }, [])
 
   const postDelete = async () => {
-    await axios({
+    const data = await axios({
       url: `${url}/question/delete/${questionId}`,
-      method: 'DELETE',
+      method: 'POST',
+      data: {
+        title: titleValue,
+        content: contentValue,
+      },
     })
   }
 
