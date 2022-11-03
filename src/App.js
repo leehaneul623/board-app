@@ -20,7 +20,7 @@ function App() {
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/keyword/:keyword" element={<Keyword />}></Route>
-          <Route path="/list" element={<List />}></Route>
+          <Route path="/list/:tag" element={<List />}></Route>
         </Routes>
       </Router>
     </div>

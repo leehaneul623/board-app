@@ -1,12 +1,13 @@
-import React from 'react';
-import ListContent from '../components/SectionContent/ListContent';
+import React from 'react'
+import Layout from '../components/Layout/Layout'
+import ListContent from '../components/SectionContent/ListContent'
 
 const List = () => {
   return (
-    <div>
+    <Layout>
       <ListContent />
-    </div>
-  );
-};
+    </Layout>
+  )
+}
 
-export default List;
+export default List

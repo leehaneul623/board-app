@@ -12,12 +12,16 @@ const ListContent = () => {
   const [error, setError] = useState('')
   const [questionData, setQuestionData] = useState([])
   const userInfo = useRecoilValue(userState)
-  const { category } = useParams()
+  const { tag } = useParams()
+
   const questionList = async () => {
     try {
       const json = await axios({
-        url: `${url}/category?category=${category}`,
+        url: `${url}/question/category`,
         method: 'GET',
+        params: {
+          category: tag,
+        },
       })
       setQuestionData(json.data)
       setIsLoading(false)
@@ -28,7 +32,7 @@ const ListContent = () => {
 
   useEffect(() => {
     questionList()
-  }, [])
+  }, [tag])
 
   if (error) {
     return (
