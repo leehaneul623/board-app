@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { CgSpinner } from 'react-icons/cg'
 import { useParams } from 'react-router-dom'
+import { url } from '../../util/url'
 import QuestionBox from '../QuestionContent/QuestionBox'
 
 const KeywordContent = () => {
@@ -11,7 +12,7 @@ const KeywordContent = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8081/question/search`, {
+      .get(`${url}/question/search`, {
         params: {
           keyword: keyword,
         },
