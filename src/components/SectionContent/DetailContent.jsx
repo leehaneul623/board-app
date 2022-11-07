@@ -134,23 +134,38 @@ const DetailContent = () => {
               <p className="text-white">Edit</p>
             </button>
           )}
-        {user == null ? (
-          <button
-            className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
-            onClick={() => {
-              alert('접근 권한이 없습니다.')
-            }}
-          >
-            <p className="text-white">Delete</p>
-          </button>
-        ) : (
-          <button
-            onClick={deleteCheck}
-            className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
-          >
-            <p className="text-white">Delete</p>
-          </button>
-        )}
+
+        {userInfo !== null ?
+          (<div className='inline-block'>
+            {
+              userInfo.data.memberId == author ?
+                <button
+                  onClick={deleteCheck}
+                  className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+                >
+                  <p className="text-white">Delete</p>
+                </button>
+                :
+                <button
+                  className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+                  onClick={() => {
+                    alert('접근 권한이 없습니다.')
+                  }}
+                >
+                  <p className="text-white">Delete</p>
+                </button>
+            }
+          </div>)
+          : (
+            <button
+              className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+              onClick={() => {
+                alert('접근 권한이 없습니다.')
+              }}
+            >
+              <p className="text-white">Delete</p>
+            </button>
+          )}
       </div>
       <DetailData
         questionTitle={detailData.title}

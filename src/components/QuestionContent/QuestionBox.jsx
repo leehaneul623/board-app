@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const QuestionBox = ({ questionId, questionTitle, questionRegDate }) => {
+
   return (
     <div>
       <Link to={`/detail/${questionId}`}>
@@ -12,7 +13,7 @@ const QuestionBox = ({ questionId, questionTitle, questionRegDate }) => {
             </div>
             <div className="mt-24 mr-10 ">
               <h1 className="text-lg font-semibold mb-3 text-right">
-                {questionTitle.length > 8
+                {questionTitle && questionTitle.length > 8
                   ? `${questionTitle.slice(0, 8)}...`
                   : `${questionTitle}`}
               </h1>
