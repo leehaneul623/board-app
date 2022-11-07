@@ -36,9 +36,11 @@ const KeywordContent = () => {
   return (
     <div>
       <div className="w-[1200px] h-[1187px] pt-16">
-        <div className="flex w-[500px] h-[100px] ml-32 mb-[60px]">
-          <div className="w-[150px] h-[150px] bg-center bg-cover"></div>
-          <div className="w-[300px] ml-6 mt-12">
+        <div className="flex items-center w-[500px] h-[100px] ml-32 mb-[60px]">
+          <div className="w-[200px] h-[200px]">
+            <img src="../board-img/logo.jpg" alt="" className='mt-12' />
+          </div>
+          <div className="w-[300px] mt-12">
             <p>현재 검색어는 " {keyword} " 입니다.</p>
           </div>
         </div>
