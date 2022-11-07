@@ -56,7 +56,9 @@ const ListContent = () => {
     <div>
       <div className="w-[1200px] h-[1187px] pt-16">
         <div className="flex w-[500px] h-[100px] ml-32 mb-[60px]">
-          <div className="w-[150px] h-[150px] bg-[url(../../board-img/logo.jpg)] bg-center bg-cover"></div>
+          <div className="w-[150px] h-[150px]">
+          <img src="../board-img/logo.jpg" alt="" />
+          </div>
           <div className="w-[300px] ml-6 mt-12">
             {userInfo == null ? '' : <b>{`${userInfo.data.nickname}`}님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
