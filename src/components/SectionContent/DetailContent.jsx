@@ -20,8 +20,11 @@ const DetailContent = () => {
   const [titleValue, setTitleValue] = useState('')
   const [contentValue, setContentValue] = useState('')
   const [user, setUser] = useRecoilState(userState)
+  const [author, setAuthor] = useState()
 
   const { questionId } = useParams()
+  console.log(userInfo)
+  console.log(author)
 
   const detailContents = async () => {
     try {
@@ -32,6 +35,7 @@ const DetailContent = () => {
 
       setDetailData(json.data)
       setAnswerList(json.data.answerList)
+      setAuthor(json.data.user.memberId)
       setIsLoading(false)
     } catch (e) {
       setError(e)
@@ -101,23 +105,35 @@ const DetailContent = () => {
   return (
     <div className="w-[1200px] py-20">
       <div className="ml-[780px]">
-        {user == null ? (
-          <button
-            className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
-            onClick={() => {
-              alert('접근 권한이 없습니다.')
-              navigate('/login')
-            }}
-          >
-            <p className="text-white">Edit</p>
-          </button>
-        ) : (
-          <Link to={`/modify/${questionId}`}>
-            <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
+        {userInfo !== null ?
+          (<div className='inline-block'>
+            {
+              userInfo.data.memberId == author ?
+                <Link to={`/modify/${questionId}`}>
+                  <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
+                    <p className="text-white">Edit</p>
+                  </button>
+                </Link> :
+                <button
+                  className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+                  onClick={() => {
+                    alert('접근 권한이 없습니다.')
+                  }}
+                >
+                  <p className="text-white">Edit</p>
+                </button>
+            }
+          </div>)
+          : (
+            <button
+              className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+              onClick={() => {
+                alert('접근 권한이 없습니다.')
+              }}
+            >
               <p className="text-white">Edit</p>
             </button>
-          </Link>
-        )}
+          )}
         {user == null ? (
           <button
             className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"

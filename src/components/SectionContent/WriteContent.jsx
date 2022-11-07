@@ -4,15 +4,34 @@ import { useState } from 'react'
 import { BsChatDots } from 'react-icons/bs'
 import { url } from '../../util/url'
 import { useNavigate } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import { userState } from '../../Recoil'
+
 
 const WriteContent = () => {
   const navigate = useNavigate()
+  const userInfo = useRecoilValue(userState)
   const [writeData, setWriteData] = useState({
     writeTitle: '',
     writeContent: '',
     writeCategory: '',
   })
   const [item, setItem] = useState('none')
+  const writeCheck = () => {
+    if (writeData.writeTitle == "") {
+      alert('제목을 입력해주세요.')
+    } else if (writeData.writeContent == "") {
+      alert('내용을 입력해주세요.')
+    } else if (item == "none") {
+      alert('항목을 다시 확인해주세요.')
+    } else {
+      writeCreate();
+      alert("작성이 완료 되었습니다.")
+      navigate("/")
+    }
+  }
+
+  console.log(userInfo.data.memberId);
 
   const writeCreate = async (event) => {
     setWriteData(() => {
@@ -22,16 +41,10 @@ const WriteContent = () => {
       }
     })
     const json = await axios({
-      url: `${url}/question/write?title=${writeData.writeTitle}&content=${writeData.writeContent}&category=${item}`,
+      url: `${url}/question/write?title=${writeData.writeTitle}&content=${writeData.writeContent}&category=${item}&memberId=${userInfo.data.memberId}`,
       method: 'GET',
     })
-    if (json.data === '작성완료' && item != 'none') {
-      alert('성공적으로 작성되었습니다')
 
-      navigate('/')
-    } else if (item === 'none') {
-      alert('항목을 다시 확인해주세요.')
-    }
   }
 
   const option = (e) => {
@@ -82,10 +95,11 @@ const WriteContent = () => {
       ></textarea>
       <button
         className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full mt-14 ml-[1000px]"
-        onClick={writeCreate}
+        onClick={writeCheck}
       >
         <p className="text-white">Submit</p>
       </button>
+
     </div>
   )
 }
