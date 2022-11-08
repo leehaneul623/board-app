@@ -1,10 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../../Recoil';
 
 const MyPageContent = () => {
     const userInfo = useRecoilValue(userState)
-    console.log(userInfo)
+    const navigate = useNavigate()
     return (
         <div className="w-[1100px] h-[1187px] pt-16">
             <div className='flex items-end mt-24'>
@@ -25,6 +26,7 @@ const MyPageContent = () => {
                 type="text"
                 placeholder='Password'
                 className='w-[800px] h-[70px] bg-white rounded-3xl mt-2 shadow-md pl-4'
+
             />
             <div className='mt-10 ml-[650px]'>
                 <button className="w-[150px] h-[55px] bg-[#ABDEFF] rounded-full">

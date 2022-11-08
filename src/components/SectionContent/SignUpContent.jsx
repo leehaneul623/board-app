@@ -13,33 +13,46 @@ const SignUpContent = () => {
   const [nickname, setNickname] = useState('')
   const navigate = useNavigate()
 
+  const join = async (e) => {
+    try {
+      const data = await axios({
+        url: `${backand_url}/user/join`,
+        method: 'POST',
+        data: {
+          memberId,
+          password,
+          passwordConfirmation,
+          name,
+          nickname,
+        },
+      })
+      setMemberId('')
+      setPassword('')
+      setPasswordConfirmation('')
+      setName('')
+      setNickname('')
+      alert('회원가입이 완료되었습니다.')
+    } catch (e) {
+      alert('회원가입에 실패하였습니다.')
+    }
+    navigate('/')
+  }
+
+
+  const passwordCheck = () => {
+    if (password !== passwordConfirmation) {
+      alert("비밀번호가 일치 하지 않습니다.")
+    } else { join() }
+
+  }
+
+
   return (
     <div className="w-[1200px] h-[1187px] pt-20">
       <form
-        onSubmit={async (e) => {
-          e.preventDefault()
-          try {
-            const data = await axios({
-              url: `${backand_url}/user/join`,
-              method: 'POST',
-              data: {
-                memberId,
-                password,
-                passwordConfirmation,
-                name,
-                nickname,
-              },
-            })
-            setMemberId('')
-            setPassword('')
-            setPasswordConfirmation('')
-            setName('')
-            setNickname('')
-            alert('회원가입이 완료되었습니다.')
-          } catch (e) {
-            alert('회원가입에 실패하였습니다.')
-          }
-          navigate('/')
+        onSubmit={(e) => {
+          e.preventDefault();
+          passwordCheck();
         }}
       >
         <div className="flex flex-row text-2xl ml-32 mt-8">
@@ -68,6 +81,8 @@ const SignUpContent = () => {
             value={password}
             onChange={(e) => {
               setPassword(e.target.value)
+
+              console.log(e.target.value)
             }}
           />
         </div>
