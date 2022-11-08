@@ -35,13 +35,13 @@ const KeywordContent = () => {
   }
   return (
     <div>
-      <div className="w-[1200px] h-[1187px] pt-16">
-        <div className="flex items-center w-[500px] h-[100px] ml-32 mb-[60px]">
-          <div className="w-[200px] h-[200px]">
-            <img src="../board-img/logo.jpg" alt="" className='mt-12' />
+      <div className="w-[1100px] h-[1187px] pt-16">
+        <div className="flex items-center w-[500px] mb-[60px]">
+          <div className="w-[200px]">
+            <img src="../board-img/logo.jpg" alt="" />
           </div>
-          <div className="w-[300px] mt-12">
-            <p>현재 검색어는 " {keyword} " 입니다.</p>
+          <div>
+            <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
           </div>
         </div>
         <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">

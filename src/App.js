@@ -5,6 +5,7 @@ import Keyword from './routes/Keyword'
 import List from './routes/List'
 import Login from './routes/Login'
 import Modify from './routes/Modify'
+import MyPage from './routes/MyPage'
 import SignUp from './routes/SignUp'
 import Write from './routes/Write'
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/keyword/:keyword" element={<Keyword />}></Route>
           <Route path="/list/:tag" element={<List />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
         </Routes>
       </Router>
     </div>
