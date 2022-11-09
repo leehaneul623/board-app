@@ -5,7 +5,7 @@ import { userState } from '../../Recoil';
 
 const MyPageContent = () => {
     const userInfo = useRecoilValue(userState)
-    const navigate = useNavigate()
+
     return (
         <div className="w-[1100px] h-[1187px] pt-16">
             <div className='flex items-end mt-24'>

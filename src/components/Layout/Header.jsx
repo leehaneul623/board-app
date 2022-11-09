@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill } from 'react-icons/bs'
+import { BiHappy } from "react-icons/bi";
 import { BiEditAlt } from 'react-icons/bi'
 import { Link, useAsyncValue, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
@@ -16,7 +17,7 @@ const Header = () => {
       <div className="flex flex-row justify-between items-center w-full h-20">
         <Link to="/">
           <div>
-            <img src="../board-img/logo.jpg" alt="" className='w-[150px] h-[100px]'/>
+            <img src="../board-img/logo.jpg" alt="" className='w-[150px] h-[100px]' />
           </div>
         </Link>
         <div className="w-[600px] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
@@ -53,7 +54,14 @@ const Header = () => {
                 </span>
               </button>
             ) : (
-              ''
+              <button onClick={() => {
+                navigate("/mypage")
+              }}>
+                <BiHappy className="text-[28px] text-gray-500" />
+                <span className="absolute top-15 left-0 text-gray-400 text-lg hidden group-hover:block">
+                  MyPage
+                </span>
+              </button>
             )}
           </li>
           <li className="group relative h-[28px]">

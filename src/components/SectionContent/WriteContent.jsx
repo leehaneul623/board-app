@@ -44,11 +44,8 @@ const WriteContent = () => {
       url: `${url}/question/write?title=${writeData.writeTitle}&content=${writeData.writeContent}&category=${item}&memberId=${userInfo.data.memberId}`,
       method: 'GET',
     })
-
   }
-
   const option = (e) => {
-    console.log(e.target.value)
     setItem(e.target.value)
   }
 
