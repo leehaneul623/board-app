@@ -64,7 +64,7 @@ const SignUpContent = () => {
           <div className="ml-4 mb-2 text-lg">ID</div>
           <input
             type="text"
-            className="sm:w-[90%] w-[80%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="ID"
             value={memberId}
             onChange={(e) => {
@@ -76,7 +76,7 @@ const SignUpContent = () => {
           <div className="ml-4 mb-2 text-lg">Password</div>
           <input
             type="password"
-            className="sm:w-[90%] w-[80%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Password"
             value={password}
             onChange={(e) => {
@@ -90,7 +90,7 @@ const SignUpContent = () => {
           <div className="ml-4 mb-2 text-lg">Password Confirmation</div>
           <input
             type="password"
-            className="sm:w-[90%] w-[80%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Password"
             value={passwordConfirmation}
             onChange={(e) => {
@@ -102,7 +102,7 @@ const SignUpContent = () => {
           <div className="ml-4 mb-2 text-lg">Name</div>
           <input
             type="text"
-            className="sm:w-[90%] w-[80%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Name"
             value={name}
             onChange={(e) => {
@@ -114,7 +114,7 @@ const SignUpContent = () => {
           <div className="ml-4 mb-2 text-lg">NickName</div>
           <input
             type="text"
-            className="sm:w-[90%] w-[80%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="NickName"
             value={nickname}
             onChange={(e) => {
@@ -124,7 +124,7 @@ const SignUpContent = () => {
         </div>
         <button
           type="submit"
-          className="sm:w-[150px] w-[120px] sm:h-[60px] h-[50px] bg-[#49A9E8] rounded-full mt-14 sm:ml-[78%] ml-[55%]"
+          className="sm:w-[150px] w-[120px] sm:h-[60px] h-[50px] bg-[#49A9E8] rounded-full mt-14 sm:ml-[78%] ml-[60%]"
         >
           <p className="text-white">Submit</p>
         </button>
