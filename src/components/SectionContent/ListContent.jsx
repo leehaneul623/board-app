@@ -55,7 +55,7 @@ const ListContent = () => {
 
   return (
     <div>
-      <div className="w-[1100px] h-[1187px] pt-16">
+      <div className="sm:w-[1100px] w-[450px] h-[1187px] pt-16">
         <div className="flex items-center w-[500px] mb-[60px]">
           <div className="w-[200px]">
             <img src="../board-img/logo.jpg" alt="" />

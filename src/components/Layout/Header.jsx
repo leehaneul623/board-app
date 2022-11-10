@@ -2,25 +2,28 @@ import React from 'react'
 import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill } from 'react-icons/bs'
 import { BiHappy } from "react-icons/bi";
 import { BiEditAlt } from 'react-icons/bi'
-import { Link, useAsyncValue, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../Recoil'
 import { useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 const Header = () => {
   const navigate = useNavigate()
   const [search, setSearch] = useState('')
   const [user, setUser] = useRecoilState(userState)
+  const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
+
 
   return (
-    <div className="w-full h-[90px] bg-[#F6F3F3] shadow-lg">
+    <div className="sm:w-full w-full h-[90px] bg-[#F6F3F3] shadow-lg">
       <div className="flex flex-row justify-between items-center w-full h-20">
         <Link to="/">
           <div>
-            <img src="../board-img/logo.jpg" alt="" className='w-[150px] h-[100px]' />
+            <img src="../board-img/logo.jpg" alt="" className='sm:w-[150px] w-[100px] sm:h-[10%] h-[70px] items-start' />
           </div>
         </Link>
-        <div className="w-[600px] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
+        <div className="sm:w-[30%] w-[35%] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
           <form
             className="flex items-center justify-between"
             onSubmit={(e) => {
@@ -29,71 +32,83 @@ const Header = () => {
           >
             <input
               type="text"
-              className="w-[530px] h-[50px] p-4 bg-[#F6F3F3] rounded-3xl outline-none"
+              className="w-[80%] h-[50px] p-4 bg-[#F6F3F3] rounded-3xl outline-none"
               placeholder="Search..."
               onChange={(e) => {
                 setSearch(e.target.value)
               }}
             />
             <button>
-              <BsSearch className="text-3xl mr-4" />
+              <BsSearch className="sm:text-3xl text-xl mr-4" />
             </button>
           </form>
         </div>
-        <ul className="flex flex-row justify-end items-center w-[150px] h-[60px] mr-8">
-          <li className="group relative h-[28px]">
-            {user == null ? (
-              <button
-                onClick={() => {
-                  navigate('/login')
-                }}
-              >
-                <BsBoxArrowInRight className="text-[28px] text-gray-500" />
-                <span className="absolute top-15 left-0 text-gray-400 text-lg hidden group-hover:block">
-                  Login
-                </span>
-              </button>
-            ) : (
-              <button onClick={() => {
-                navigate("/mypage")
-              }}>
-                <BiHappy className="text-[28px] text-gray-500" />
-                <span className="absolute top-15 left-0 text-gray-400 text-lg hidden group-hover:block">
-                  MyPage
-                </span>
-              </button>
-            )}
-          </li>
-          <li className="group relative h-[28px]">
-            <Link to="/signup">
-              <BsPersonPlusFill className="text-[28px] text-gray-500 ml-6" />
-              <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
-                SignUp
-              </span>
-            </Link>
-          </li>
-          <li className="group relative h-[28px]">
-            {user == null ? (
-              <button
-                onClick={() => {
-                  alert('로그인 후 이용해 주세요.')
-                }}
-              >
-                <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
+        {isMobile ?
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost btn-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+            </label>
+            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a href='/login'>Login</a></li>
+              <li><a href='/signup'>SignUp</a></li>
+              <li><a href='/write'>Write</a></li>
+            </ul>
+          </div>
+          : <ul className="flex flex-row justify-end items-center w-[150px] h-[60px] mr-8">
+            <li className="group relative h-[28px]">
+              {user == null ? (
+                <button
+                  onClick={() => {
+                    navigate('/login')
+                  }}
+                >
+                  <BsBoxArrowInRight className="text-[28px] text-gray-500" />
+                  <span className="absolute top-15 left-0 text-gray-400 text-lg hidden group-hover:block">
+                    Login
+                  </span>
+                </button>
+              ) : (
+                <button onClick={() => {
+                  navigate("/mypage")
+                }}>
+                  <BiHappy className="text-[28px] text-gray-500" />
+                  <span className="absolute top-15 left-0 text-gray-400 text-lg hidden group-hover:block">
+                    MyPage
+                  </span>
+                </button>
+              )}
+            </li>
+            <li className="group relative h-[28px]">
+              <Link to="/signup">
+                <BsPersonPlusFill className="text-[28px] text-gray-500 ml-6" />
                 <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
-                  Write
-                </span>
-              </button>
-            ) : (
-              <Link to="/write">
-                <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
-                <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
-                  Write
+                  SignUp
                 </span>
               </Link>
-            )}
-          </li>
-        </ul>
+            </li>
+            <li className="group relative h-[28px]">
+              {user == null ? (
+                <button
+                  onClick={() => {
+                    alert('로그인 후 이용해 주세요.')
+                  }}
+                >
+                  <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
+                  <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
+                    Write
+                  </span>
+                </button>
+              ) : (
+                <Link to="/write">
+                  <BiEditAlt className="text-[28px] text-gray-500 ml-6" />
+                  <span className="absolute top-15 left-3 text-gray-400 text-lg hidden group-hover:block">
+                    Write
+                  </span>
+                </Link>
+              )}
+            </li>
+          </ul>
+        }
       </div>
     </div>
   )

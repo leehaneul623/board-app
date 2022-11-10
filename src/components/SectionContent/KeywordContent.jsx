@@ -4,11 +4,14 @@ import { CgSpinner } from 'react-icons/cg'
 import { useParams } from 'react-router-dom'
 import { url } from '../../util/url'
 import QuestionBox from '../QuestionContent/QuestionBox'
+import { useMediaQuery } from 'react-responsive'
+import { BsFillEmojiSmileFill } from 'react-icons/bs'
 
 const KeywordContent = () => {
   const [search, setSearch] = useState([])
   const { keyword } = useParams()
   const [loading, setLoading] = useState(true)
+  const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
 
   useEffect(() => {
     axios
@@ -35,15 +38,23 @@ const KeywordContent = () => {
   }
   return (
     <div>
-      <div className="w-[1100px] h-[1187px] pt-16">
-        <div className="flex items-center w-[500px] mb-[60px]">
-          <div className="w-[200px]">
-            <img src="../board-img/logo.jpg" alt="" />
+      <div className="sm:w-[1100px] w-[450px] h-[1187px] pt-16">
+        {isMobile ?
+          <div className="flex items-center w-[500px] mb-[60px]">
+            <BsFillEmojiSmileFill className="text-2xl mr-4" />
+            <div>
+              <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
+            </div>
           </div>
-          <div>
-            <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
-          </div>
-        </div>
+          :
+          <div className="sm:flex items-center w-[500px] mb-[60px]">
+            <div className="w-[200px]">
+              <img src="../board-img/logo.jpg" alt="" />
+            </div>
+            <div>
+              <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
+            </div>
+          </div>}
         <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">
           {search.map((data, index) => (
             <QuestionBox

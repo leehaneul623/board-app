@@ -7,7 +7,7 @@ const QuestionBox = ({ questionId, questionTitle, questionRegDate }) => {
     <div>
       <Link to={`/detail/${questionId}`}>
         <div className="w-[550px]">
-          <div className="flex items-center justify-between w-[400px] h-[230px] bg-white rounded-3xl drop-shadow-xl ml-20 mb-20 ">
+          <div className="flex items-center justify-between w-[400px] h-[230px] bg-white rounded-3xl drop-shadow-xl sm:ml-20 mb-20 ">
             <div>
               <img src="../board-img/profile.jpg" alt="" className='w-[160px] h-[170px] ml-10' />
             </div>

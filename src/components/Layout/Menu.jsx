@@ -7,13 +7,15 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { userState } from '../../Recoil'
 import { useRecoilState } from 'recoil'
 import List from '../../routes/List'
+import { useMediaQuery } from 'react-responsive'
 
 const Menu = () => {
   const navigate = useNavigate()
   const [user, setUser] = useRecoilState(userState)
+  const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
 
   return (
-    <div className="w-[80px] h-[950px] rounded-full mt-6 bg-gradient-to-b from-[#ABDEFF] to-[#49A9E8] opacity-80 py-[100px]">
+    <div className="sm:w-[80px] w-[75px] h-[950px] rounded-full mt-6 bg-gradient-to-b from-[#ABDEFF] to-[#49A9E8] opacity-80 py-[100px] sm:mr-0 mr-16 sm:ml-0 ml-4">
       <div className="flex flex-col justify-between  h-full space-y-14 items-center text-white text-4xl">
         <ul className="flex flex-col h-[500px] justify-between items-center">
           <li className="group relative h-[28px]">

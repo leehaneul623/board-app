@@ -7,12 +7,14 @@ import QuestionBox from '../QuestionContent/QuestionBox'
 import { useRecoilValue } from 'recoil'
 import { userState } from '../../Recoil'
 import { BsFillEmojiSmileFill } from 'react-icons/bs'
+import { useMediaQuery } from 'react-responsive'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [questionData, setQuestionData] = useState([])
   const userInfo = useRecoilValue(userState)
+  const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
 
   const questionList = async () => {
     try {
@@ -51,12 +53,12 @@ const Home = () => {
 
   return (
     <div>
-      <div className="w-[1100px] h-[1187px] pt-16">
-        <div className="flex items-center w-[500px] mb-[60px]">
-          <div className="w-[200px]">
+      <div className="sm:w-[1100px] w-[450px] h-[1187px] pt-16">
+        <div className="sm:flex items-center w-[500px] mb-[60px]">
+          {isMobile ? "" : <div className="w-[200px]">
             <img src="../board-img/logo.jpg" alt="" />
-          </div>
-          <div className="w-[300px]">
+          </div>}
+          <div className="sm:w-[300px] ">
             {userInfo == null ? '' : <b className='text-xl'>{`${userInfo.data.nickname}`} 님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
             <div className="flex">
