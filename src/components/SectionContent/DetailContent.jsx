@@ -103,19 +103,19 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="w-[1200px] py-20">
-      <div className="ml-[780px]">
+    <div className="sm:w-[1200px] w-[450px] py-20">
+      <div className="sm:ml-[750px]">
         {userInfo !== null ?
           (<div className='inline-block'>
             {
               userInfo.data.memberId == author ?
                 <Link to={`/modify/${questionId}`}>
-                  <button className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
+                  <button className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full mr-14">
                     <p className="text-white">Edit</p>
                   </button>
                 </Link> :
                 <button
-                  className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+                  className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
                   onClick={() => {
                     alert('접근 권한이 없습니다.')
                   }}
@@ -126,7 +126,7 @@ const DetailContent = () => {
           </div>)
           : (
             <button
-              className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+              className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
               onClick={() => {
                 alert('접근 권한이 없습니다.')
               }}
@@ -141,13 +141,13 @@ const DetailContent = () => {
               userInfo.data.memberId == author ?
                 <button
                   onClick={deleteCheck}
-                  className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+                  className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full"
                 >
                   <p className="text-white">Delete</p>
                 </button>
                 :
                 <button
-                  className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+                  className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
                   onClick={() => {
                     alert('접근 권한이 없습니다.')
                   }}
@@ -158,7 +158,7 @@ const DetailContent = () => {
           </div>)
           : (
             <button
-              className="w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
+              className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
               onClick={() => {
                 alert('접근 권한이 없습니다.')
               }}
@@ -171,11 +171,11 @@ const DetailContent = () => {
         questionTitle={detailData.title}
         questionContent={detailData.content}
       />
-      <div className="flex flex-row mt-10">
+      <div className="flex flex-row mt-10 ">
         <input
           type="text"
           placeholder="댓글을 작성하려면 로그인을 해주세요."
-          className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 p-6 mb-12"
+          className="flex items-center sm:w-[70%] w-[65%] h-[58px] bg-white rounded-3xl sm:ml-32 p-6 mb-12"
           onClick={() => {
             if (userInfo.name === '') {
               alert('댓글을 작성하려면 로그인을 해주세요.')
@@ -186,7 +186,7 @@ const DetailContent = () => {
           }}
         />
         <button
-          className="w-[150px] h-[58px] bg-[#ABDEFF] rounded-full ml-6"
+          className="sm:w-[150px] w-[100px] h-[58px] bg-[#ABDEFF] rounded-full ml-6"
           onClick={() => {
             answerCheck()
           }}
@@ -198,7 +198,7 @@ const DetailContent = () => {
         {answerList.map((data, index) => (
           <div
             key={index}
-            className="flex items-center w-[850px] h-[58px] bg-white rounded-3xl ml-32 p-6 mt-6"
+            className="flex items-center sm:w-[70%] w-[65%] h-[58px] bg-white rounded-3xl sm:ml-32 p-6 mt-6"
           >
             <b className="pr-6 border-r-2">{data.nickname}</b>
             <p className="pl-6">{data.content}</p>

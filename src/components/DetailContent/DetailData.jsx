@@ -17,14 +17,14 @@ const DetailData = ({ questionTitle, questionContent }) => {
 
   return (
     <div>
-      <div className="leading-[75px] w-[1024px] h-[75px] bg-white rounded-3xl ml-32 mt-10">
+      <div className="leading-[75px] sm:w-[83%] w-[95%] h-[75px] bg-white rounded-3xl sm:ml-32 mt-10">
         <p className="text-lg p-6">{questionTitle}</p>
       </div>
       <div
         className={
           contentHeight > 600
-            ? ' w-[1024px] bg-white rounded-3xl ml-32 mt-10'
-            : ' w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-10'
+            ? ' sm:w-[83%] w-[95%] bg-white rounded-3xl sm:ml-32 mt-10'
+            : ' sm:w-[83%] w-[95%] h-[600px] bg-white rounded-3xl sm:ml-32 mt-10'
         }
       >
         <p ref={ref} className="text-lg p-4">
