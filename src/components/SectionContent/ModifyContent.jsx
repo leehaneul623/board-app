@@ -96,15 +96,15 @@ const ModifyContent = () => {
   }
 
   return (
-    <div className="w-[1200px] h-[1187px] pt-20">
-      <div className="flex flex-row ml-32 mt-16 text-xl">
+    <div className="sm:w-[1200px] w-[450px] h-[1187px] pt-20">
+      <div className="flex flex-row sm:ml-32 mt-16 text-xl">
         <BsChatDots />
         <p className="ml-4">자유롭게 수정해주세요.</p>
       </div>
       <div>
         <input
           type="text"
-          className="leading-[75px] w-[1024px] h-[75px] bg-white rounded-3xl ml-32 mt-10 p-4 text-lg"
+          className="leading-[75px] sm:w-[83%] w-[95%] h-[75px] bg-white rounded-3xl sm:ml-32 mt-10 p-4 text-lg"
           value={titleValue}
           onChange={(e) => {
             setTitleValue(e.target.value)
@@ -112,23 +112,23 @@ const ModifyContent = () => {
         />
         <textarea
           type="text"
-          className="w-[1024px] h-[600px] bg-white rounded-3xl ml-32 mt-10 p-4 text-lg overflow-y-scroll"
+          className="sm:w-[83%] w-[95%] h-[600px] bg-white rounded-3xl sm:ml-32 mt-10 p-4 text-lg overflow-y-scroll"
           value={contentValue}
           onChange={(e) => {
             setContentValue(e.target.value)
           }}
         ></textarea>
       </div>
-      <div className="flex mt-14 ml-[770px]">
+      <div className="flex mt-14 sm:ml-[63%] ml-[25%]">
         <button
           onClick={postCheck}
-          className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full"
+          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full"
         >
           <p className="text-white">Edit</p>
         </button>
         <button
           onClick={deleteCheck}
-          className="w-[150px] h-[60px] bg-[#49A9E8] rounded-full ml-14"
+          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full ml-14"
         >
           <p className="text-white">Delete</p>
         </button>
