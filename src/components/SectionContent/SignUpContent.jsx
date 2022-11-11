@@ -48,7 +48,7 @@ const SignUpContent = () => {
 
 
   return (
-    <div className="sm:w-[1200px] w-[450px] h-[1187px] pt-20">
+    <div className="sm:w-[1200px] w-full h-[1187px] pt-20">
       <form
         onSubmit={(e) => {
           e.preventDefault();

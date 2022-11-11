@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill } from 'react-icons/bs'
+import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill, BsCaretLeftFill } from 'react-icons/bs'
 import { BiHappy } from "react-icons/bi";
 import { BiEditAlt } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
@@ -23,7 +23,7 @@ const Header = () => {
             <img src="../board-img/logo.jpg" alt="" className='sm:w-[150px] w-[100px] sm:h-[10%] h-[70px] items-start' />
           </div>
         </Link>
-        <div className="sm:w-[30%] w-[35%] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
+        {isMobile ? "" : <div className="sm:w-[30%] w-[35%] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
           <form
             className="flex items-center justify-between"
             onSubmit={(e) => {
@@ -42,16 +42,74 @@ const Header = () => {
               <BsSearch className="sm:text-3xl text-xl mr-4" />
             </button>
           </form>
-        </div>
+        </div>}
         {isMobile ?
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
             </label>
-            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-              <li><a href='/login'>Login</a></li>
+            <ul tabIndex={0} className="menu menu-compact dropdown-content right-0 mt-3 p-2 shadow bg-base-100 rounded-box w-36">
+              {user == null ? <li><a href='/login'>Login</a></li> : <li><a href='/mypage'>MyPage</a></li>}
               <li><a href='/signup'>SignUp</a></li>
               <li><a href='/write'>Write</a></li>
+              <li className="relative ">
+                <label
+                  tabIndex="0"
+                  className="flex flex-col justify-between"
+                >
+                  <input
+                    type="checkbox"
+                    name="menu_inner"
+                    id="icon"
+                    className="hidden peer"
+                  ></input>
+                  <p>Menu</p>
+                  <ul className="peer-checked:block hidden h-screen text-gray-content rounded-lg z-10">
+                    <Link to={`/list/knowledge`}>
+                      <li className="group flex rounded-lg mb-6">
+                        <p className="text-white group-hover:text-black ">
+                          Knowledge
+                        </p>
+                      </li>
+                    </Link>
+                    <Link to={`/list/music`}>
+                      <li className="group flex rounded-lg mb-6 ">
+                        <p className="text-white group-hover:text-black ">
+                          Music
+                        </p>
+                      </li>
+                    </Link>
+                    <Link to={`/list/exercise`}>
+                      <li className="group flex rounded-lg mb-6 ">
+                        <p className="text-white group-hover:text-black ">
+                          Exercise
+                        </p>
+                      </li>
+                    </Link>
+                    <Link to={`/list/cooking`}>
+                      <li className="group flex rounded-lg mb-6 ">
+                        <p className="text-white group-hover:text-black ">
+                          Cooking
+                        </p>
+                      </li>
+                    </Link>
+                    <Link to={`/list/etc`}>
+                      <li className="group flex rounded-lg mb-6 ">
+                        <p className="text-white group-hover:text-black ">
+                          Etc
+                        </p>
+                      </li>
+                    </Link>
+                    <Link to={`/list/etc`}>
+                      <li className="group flex rounded-lg mb-6 ">
+                        <p className="text-white group-hover:text-black ">
+                          Logout
+                        </p>
+                      </li>
+                    </Link>
+                  </ul>
+                </label>
+              </li>
             </ul>
           </div>
           : <ul className="flex flex-row justify-end items-center w-[150px] h-[60px] mr-8">

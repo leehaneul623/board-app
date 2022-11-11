@@ -23,8 +23,6 @@ const DetailContent = () => {
   const [author, setAuthor] = useState()
 
   const { questionId } = useParams()
-  console.log(userInfo)
-  console.log(author)
 
   const detailContents = async () => {
     try {
@@ -103,8 +101,8 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="sm:w-[1200px] w-[450px] py-20">
-      <div className="sm:ml-[750px]">
+    <div className="sm:w-[1200px] w-full py-20">
+      <div className="sm:ml-[750px] ml-[40%]">
         {userInfo !== null ?
           (<div className='inline-block'>
             {
@@ -175,7 +173,7 @@ const DetailContent = () => {
         <input
           type="text"
           placeholder="댓글을 작성하려면 로그인을 해주세요."
-          className="flex items-center sm:w-[70%] w-[65%] h-[58px] bg-white rounded-3xl sm:ml-32 p-6 mb-12"
+          className="flex items-center sm:w-[70%] w-[65%] h-[58px] bg-white rounded-3xl sm:ml-32 ml-[5%] p-6 mb-12"
           onClick={() => {
             if (userInfo.name === '') {
               alert('댓글을 작성하려면 로그인을 해주세요.')

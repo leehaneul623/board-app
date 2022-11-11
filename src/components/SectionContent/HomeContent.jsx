@@ -23,11 +23,13 @@ const Home = () => {
         method: 'GET',
       })
       setQuestionData(json.data)
+      console.log(json)
       setIsLoading(false)
     } catch (e) {
       setError(e)
     }
   }
+
 
   useEffect(() => {
     questionList()
@@ -53,12 +55,12 @@ const Home = () => {
 
   return (
     <div>
-      <div className="sm:w-[1100px] w-[450px] h-[1187px] pt-16">
+      <div className="sm:w-[1100px] w-full h-[1187px] pt-16">
         <div className="sm:flex items-center w-[500px] mb-[60px]">
           {isMobile ? "" : <div className="w-[200px]">
             <img src="../board-img/logo.jpg" alt="" />
           </div>}
-          <div className="sm:w-[300px] ">
+          <div className="sm:w-[300px] sm:pl-0 pl-28">
             {userInfo == null ? '' : <b className='text-xl'>{`${userInfo.data.nickname}`} 님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
             <div className="flex">
@@ -67,7 +69,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">
+        <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll sm:pl-0 pl-28">
           {questionData.map((data, index) => (
             <QuestionBox
               key={index}

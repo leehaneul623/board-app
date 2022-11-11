@@ -31,8 +31,6 @@ const WriteContent = () => {
     }
   }
 
-  console.log(userInfo.data.memberId);
-
   const writeCreate = async (event) => {
     setWriteData(() => {
       return {
@@ -51,8 +49,8 @@ const WriteContent = () => {
   }
 
   return (
-    <div className="sm:w-[1200px] w-[450px] h-[1187px] pt-20">
-      <div className="sm:flex flex-row justify-around mt-16 text-xl">
+    <div className="sm:w-[1200px] w-full h-[1187px] pt-20">
+      <div className="sm:flex flex-row justify-around mt-16 sm:ml-0 ml-[5%] text-xl">
         <div className="flex mt-4">
           <BsChatDots />
           <p className="ml-4 sm:mb-0 mb-6">자유롭게 작성해주세요.</p>
@@ -71,7 +69,7 @@ const WriteContent = () => {
       </div>
       <input
         type="text"
-        className="flex items-center sm:w-[83%] w-[95%] h-[7%] bg-white rounded-3xl sm:ml-32 mt-10 pl-4 outline-none"
+        className="flex items-center sm:w-[83%] w-[90%] h-[7%] bg-white rounded-3xl sm:ml-32 ml-[5%] mt-10 pl-4 outline-none"
         placeholder="제목을 입력해주세요."
         value={writeData.writeTitle}
         onChange={(e) => {
@@ -82,7 +80,7 @@ const WriteContent = () => {
       />
       <textarea
         type="text"
-        className="sm:w-[83%] w-[95%] sm:h-[50%] h-[45%] bg-white rounded-3xl sm:ml-32 mt-14 pl-4 p-4"
+        className="sm:w-[83%] w-[90%] sm:h-[50%] h-[45%] bg-white rounded-3xl sm:ml-32 ml-[5%] mt-14 pl-4 p-4"
         placeholder="내용을 입력해주세요."
         value={writeData.writeContent}
         onChange={(e) => {
