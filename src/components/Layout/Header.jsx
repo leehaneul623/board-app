@@ -100,13 +100,19 @@ const Header = () => {
                         </p>
                       </li>
                     </Link>
-                    <Link to={`/list/etc`}>
-                      <li className="group flex rounded-lg mb-6 ">
-                        <p className="text-white group-hover:text-black ">
-                          Logout
-                        </p>
-                      </li>
-                    </Link>
+
+                    <li className="group flex rounded-lg mb-6 ">
+                      <button
+                        onClick={() => {
+                          setUser(null)
+                          alert('로그아웃이 완료 되었습니다.')
+                          navigate('/')
+                        }}
+                        className="text-white group-hover:text-black ">
+                        Logout
+                      </button>
+                    </li>
+
                   </ul>
                 </label>
               </li>

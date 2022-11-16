@@ -55,7 +55,7 @@ const Home = () => {
 
   return (
     <div className='2xl:w-[100%] w-[85%]'>
-      <div className="2xl:w-[1200px] w-full h-[1187px] pt-16 md:px-0 sm:px-12 ">
+      <div className="2xl:w-[1200px] w-full h-[1187px] pt-16 md:px-0 sm:px-12">
         <div className="sm:flex items-center w-[500px] mb-[60px]">
           {isMobile ?
             ""
