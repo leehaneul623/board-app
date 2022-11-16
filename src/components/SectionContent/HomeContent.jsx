@@ -54,12 +54,15 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <div className="sm:w-[1100px] w-full h-[1187px] pt-16">
+    <div className='2xl:w-[100%] w-[85%]'>
+      <div className="2xl:w-[1200px] w-full h-[1187px] pt-16 md:px-0 sm:px-12 ">
         <div className="sm:flex items-center w-[500px] mb-[60px]">
-          {isMobile ? "" : <div className="w-[200px]">
-            <img src="../board-img/logo.jpg" alt="" />
-          </div>}
+          {isMobile ?
+            ""
+            :
+            <div className="w-[200px]">
+              <img src="../board-img/logo.jpg" alt="" />
+            </div>}
           <div className="sm:w-[300px] sm:pl-0 pl-28">
             {userInfo == null ? '' : <b className='text-xl'>{`${userInfo.data.nickname}`} 님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
@@ -69,7 +72,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll sm:pl-0 pl-28">
+        <div className="md:flex flex-wrap justify-between xl:justify-around lg:w-full content-start h-[870px] overflow-y-scroll sm:pl-0 pl-28">
           {questionData.map((data, index) => (
             <QuestionBox
               key={index}

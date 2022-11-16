@@ -55,16 +55,16 @@ const SignUpContent = () => {
           passwordCheck()
         }}
       >
-        <div className="flex text-2xl sm:ml-32 ml-[10%] mt-8">
+        <div className="flex text-2xl sm:ml-34 md:ml-32 ml-[10%] mt-8">
           <BsFillEmojiSmileFill className="mr-1" />
           <BsFillHeartFill className="mr-4" />
           <h2>welcome to who !</h2>
         </div>
-        <div className="sm:ml-32 ml-[10%] mt-10">
+        <div className="sm:ml-34 md:ml-32 ml-[10%] mt-10">
           <div className="ml-4 mb-2 text-lg">ID</div>
           <input
             type="text"
-            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="ID"
             value={memberId}
             onChange={(e) => {
@@ -72,11 +72,11 @@ const SignUpContent = () => {
             }}
           />
         </div>
-        <div className="sm:ml-32 ml-[10%] mt-10">
+        <div className="sm:ml-34 md:ml-32 ml-[10%] mt-10">
           <div className="ml-4 mb-2 text-lg">Password</div>
           <input
             type="password"
-            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Password"
             value={password}
             onChange={(e) => {
@@ -86,11 +86,11 @@ const SignUpContent = () => {
             }}
           />
         </div>
-        <div className="sm:ml-32 ml-[10%] mt-10">
+        <div className="sm:ml-34 md:ml-32 ml-[10%] mt-10">
           <div className="ml-4 mb-2 text-lg">Password Confirmation</div>
           <input
             type="password"
-            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Password"
             value={passwordConfirmation}
             onChange={(e) => {
@@ -98,11 +98,11 @@ const SignUpContent = () => {
             }}
           />
         </div>
-        <div className="sm:ml-32 ml-[10%] mt-10">
+        <div className="sm:ml-34 md:ml-32 ml-[10%] mt-10">
           <div className="ml-4 mb-2 text-lg">Name</div>
           <input
             type="text"
-            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="Name"
             value={name}
             onChange={(e) => {
@@ -110,11 +110,11 @@ const SignUpContent = () => {
             }}
           />
         </div>
-        <div className="sm:ml-32 ml-[10%] mt-10">
+        <div className="sm:ml-34 md:ml-32 ml-[10%] mt-10">
           <div className="ml-4 mb-2 text-lg">NickName</div>
           <input
             type="text"
-            className="sm:w-[90%] w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
+            className="w-[85%] h-[60px] bg-white rounded-3xl shadow-md pl-4"
             placeholder="NickName"
             value={nickname}
             onChange={(e) => {
@@ -124,7 +124,7 @@ const SignUpContent = () => {
         </div>
         <button
           type="submit"
-          className="sm:w-[150px] w-[120px] sm:h-[60px] h-[50px] bg-[#49A9E8] rounded-full mt-14 sm:ml-[78%] ml-[60%]"
+          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full mt-14 sm:ml-[60%] md:ml-[65%] lg:ml-[70%] ml-[60%]"
         >
           <p className="text-white">Submit</p>
         </button>

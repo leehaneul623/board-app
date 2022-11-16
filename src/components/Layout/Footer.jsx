@@ -29,7 +29,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        : <div className="footer w-full h-[129px] items-center p-4 text-neutral-content bg-gray-400">
+        : <div className="footer flex justify-between w-full h-[129px] items-center p-4 text-neutral-content bg-gray-400">
           <div className="items-center grid-flow-col">
             <svg
               width="36"

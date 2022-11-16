@@ -36,20 +36,20 @@ const KeywordContent = () => {
     )
   }
   return (
-    <div>
-      <div className="w-[1100px] h-[1187px] pt-16">
-        {isMobile ?
-          ""
-          :
-          <div className="flex items-center w-[500px] mb-[60px]">
+    <div className='w-[85%]'>
+      <div className="xl:w-[1200px] w-full h-[1187px] pt-16">
+        <div className="sm:flex items-center w-[500px] mb-[60px]">
+          {isMobile ?
+            ""
+            :
             <div className="w-[200px]">
               <img src="../board-img/logo.jpg" alt="" />
-            </div>
-            <div>
-              <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
-            </div>
-          </div>}
-        <div className="flex flex-wrap content-start h-[870px] overflow-y-scroll">
+            </div>}
+          <div>
+            <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
+          </div>
+        </div>
+        <div className="md:flex flex-wrap justify-between lg:w-full content-start h-[870px] overflow-y-scroll sm:pl-0 pl-28">
           {search.map((data, index) => (
             <QuestionBox
               key={index}

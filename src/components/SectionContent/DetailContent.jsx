@@ -31,10 +31,12 @@ const DetailContent = () => {
         method: 'GET',
       })
 
+
       setDetailData(json.data)
       setAnswerList(json.data.answerList)
-      setAuthor(json.data.user.memberId)
+      setAuthor(json.data.memberId)
       setIsLoading(false)
+
     } catch (e) {
       setError(e)
     }
@@ -101,8 +103,8 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="sm:w-[1200px] w-full py-20">
-      <div className="sm:ml-[750px] ml-[40%]">
+    <div className="sm:w-[1200px] md:w-[80%] w-full py-20 pt-20 p-[5%] lg:ml-0">
+      <div className="sm:ml-[5%] md:ml-[5%] xl:ml-[50%] ml-0">
         {userInfo !== null ?
           (<div className='inline-block'>
             {
@@ -173,7 +175,7 @@ const DetailContent = () => {
         <input
           type="text"
           placeholder="댓글을 작성하려면 로그인을 해주세요."
-          className="flex items-center sm:w-[70%] w-[65%] h-[58px] bg-white rounded-3xl sm:ml-32 ml-[5%] p-6 mb-12"
+          className="flex items-center sm:w-[80%] md:w-[85%] w-[75%] h-[58px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 p-6 mb-8"
           onClick={() => {
             if (userInfo.name === '') {
               alert('댓글을 작성하려면 로그인을 해주세요.')
@@ -196,7 +198,7 @@ const DetailContent = () => {
         {answerList.map((data, index) => (
           <div
             key={index}
-            className="flex items-center sm:w-[70%] w-[65%] h-[58px] bg-white rounded-3xl sm:ml-32 p-6 mt-6"
+            className="flex items-center w-[100%] h-[58px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 p-6 mt-4"
           >
             <b className="pr-6 border-r-2">{data.nickname}</b>
             <p className="pl-6">{data.content}</p>

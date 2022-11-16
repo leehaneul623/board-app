@@ -96,15 +96,15 @@ const ModifyContent = () => {
   }
 
   return (
-    <div className="sm:w-[1200px] w-full h-[1187px] pt-20">
-      <div className="flex flex-row sm:ml-32 ml-[5%] mt-16 text-xl">
+    <div className="sm:w-[1200px] md:w-[80%] w-full h-[1187px] pt-20 p-[5%] lg:ml-0">
+      <div className="flex flex-row sm:ml-[5%] md:ml-0 mt-16 sm:ml-[5%] ml-[5%] text-xl">
         <BsChatDots />
         <p className="ml-4">자유롭게 수정해주세요.</p>
       </div>
       <div>
         <input
           type="text"
-          className="leading-[75px] sm:w-[83%] w-[90%] h-[75px] bg-white rounded-3xl sm:ml-32 ml-[5%] mt-10 p-4 text-lg"
+          className="leading-[75px] w-[100%] h-[75px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10 p-4 text-lg"
           value={titleValue}
           onChange={(e) => {
             setTitleValue(e.target.value)
@@ -112,14 +112,14 @@ const ModifyContent = () => {
         />
         <textarea
           type="text"
-          className="sm:w-[83%] w-[90%] h-[600px] bg-white rounded-3xl sm:ml-32 ml-[5%] mt-10 p-4 text-lg overflow-y-scroll"
+          className="w-[100%] h-[600px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10 pl-4 p-4 text-lg overflow-y-scroll"
           value={contentValue}
           onChange={(e) => {
             setContentValue(e.target.value)
           }}
         ></textarea>
       </div>
-      <div className="flex mt-14 sm:ml-[63%] ml-[25%]">
+      <div className="flex mt-14 sm:ml-[45%] md:ml-[50%] lg:ml-[60%] ml-[45%]">
         <button
           onClick={postCheck}
           className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full"
