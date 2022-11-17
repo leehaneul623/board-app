@@ -14,6 +14,14 @@ const Header = () => {
   const [user, setUser] = useRecoilState(userState)
   const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
 
+  const searchCheck = () => {
+    if (search !== "") {
+      navigate(`/keyword/${search}`);
+    } else {
+      alert("검색어를 입력해 주세요.");
+    }
+  };
+
 
   return (
     <div className="sm:w-full w-full h-[90px] bg-[#F6F3F3] shadow-lg">
@@ -27,7 +35,7 @@ const Header = () => {
           <form
             className="flex items-center justify-between"
             onSubmit={(e) => {
-              navigate(`/keyword/${search}`)
+              searchCheck()
             }}
           >
             <input
