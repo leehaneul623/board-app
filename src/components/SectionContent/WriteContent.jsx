@@ -31,6 +31,8 @@ const WriteContent = () => {
     }
   }
 
+  console.log(userInfo)
+
   const writeCreate = async (event) => {
     setWriteData(() => {
       return {

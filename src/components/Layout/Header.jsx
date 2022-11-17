@@ -48,11 +48,19 @@ const Header = () => {
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
             </label>
-            <ul tabIndex={0} className="menu menu-compact dropdown-content right-0 mt-3 p-2 shadow bg-base-100 rounded-box w-36">
+            <ul tabIndex={0} className="menu menu-compact dropdown-content right-0 mt-3 p-2 shadow bg-base-100 rounded-box w-40">
               {user == null ? <li><a href='/login'>Login</a></li> : <li><a href='/mypage'>MyPage</a></li>}
               <li><a href='/signup'>SignUp</a></li>
-              <li><a href='/write'>Write</a></li>
-              <li className="relative ">
+              {user == null ?
+                <li>
+                  <button
+                    onClick={() => {
+                      alert('로그인 후 이용해 주세요.')
+                    }}>Write</button>
+                </li>
+                :
+                <li><a href='/write'>Write</a></li>}
+              <li className="relative">
                 <label
                   tabIndex="0"
                   className="flex flex-col justify-between"
@@ -64,7 +72,7 @@ const Header = () => {
                     className="hidden peer"
                   ></input>
                   <p>Menu</p>
-                  <ul className="peer-checked:block hidden h-screen text-gray-content rounded-lg z-10">
+                  <ul className="peer-checked:block hidden h-96 text-gray-content rounded-lg z-10">
                     <Link to={`/list/knowledge`}>
                       <li className="group flex rounded-lg mb-6">
                         <p className="text-white group-hover:text-black ">
@@ -100,19 +108,18 @@ const Header = () => {
                         </p>
                       </li>
                     </Link>
-
                     <li className="group flex rounded-lg mb-6 ">
-                      <button
-                        onClick={() => {
-                          setUser(null)
-                          alert('로그아웃이 완료 되었습니다.')
-                          navigate('/')
-                        }}
-                        className="text-white group-hover:text-black ">
-                        Logout
-                      </button>
+                      {user == null ? "" :
+                        <button
+                          onClick={() => {
+                            setUser(null)
+                            alert('로그아웃이 완료 되었습니다.')
+                            navigate('/')
+                          }}
+                          className="text-white group-hover:text-black ">
+                          Logout
+                        </button>}
                     </li>
-
                   </ul>
                 </label>
               </li>

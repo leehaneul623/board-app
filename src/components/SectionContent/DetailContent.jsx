@@ -30,17 +30,16 @@ const DetailContent = () => {
         url: `${url}/question/detail/${questionId}`,
         method: 'GET',
       })
-
-
       setDetailData(json.data)
       setAnswerList(json.data.answerList)
       setAuthor(json.data.memberId)
       setIsLoading(false)
-
     } catch (e) {
       setError(e)
     }
   }
+
+  console.log(detailData)
 
   useEffect(() => {
     detailContents()
@@ -62,6 +61,7 @@ const DetailContent = () => {
     postDelete()
     navigate('/')
   }
+  console.log(userInfo)
 
   const answerCreate = async () => {
     await axios({
@@ -114,6 +114,7 @@ const DetailContent = () => {
                     <p className="text-white">Edit</p>
                   </button>
                 </Link> :
+
                 <button
                   className="sm:w-[150px] w-[120px] h-[45px] bg-[#ABDEFF] rounded-full mr-14"
                   onClick={() => {
@@ -134,6 +135,7 @@ const DetailContent = () => {
               <p className="text-white">Edit</p>
             </button>
           )}
+
 
         {userInfo !== null ?
           (<div className='inline-block'>
