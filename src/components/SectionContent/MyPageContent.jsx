@@ -10,7 +10,7 @@ const MyPageContent = () => {
         <div className="sm:w-[1100px] w-full h-[1187px] p-[10%]">
             <div className='flex mt-24'>
                 <img src="../board-img/profile.jpg" alt="" className='w-[40%] h-[70%]' />
-                <b className='text-xl md:p-24 p-2 '>{`${userInfo.data.nickname}`} 님의 Page</b>
+                <b className='text-xl mt-[30%] ml-[5%]'>{`${userInfo.data.nickname}`} 님의 Page</b>
             </div>
             <div className='flex items-center w-[70%] h-[6%] bg-white rounded-3xl mt-10 shadow-md pl-4'>
                 <p>{`${userInfo.data.name}`}</p>

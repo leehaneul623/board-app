@@ -55,8 +55,8 @@ const Home = () => {
 
   return (
     <div className='2xl:w-[90%] w-[85%]'>
-      <div className="2xl:w-[1200px] w-full h-[1187px] pt-16 md:px-0 sm:px-12">
-        <div className="sm:flex items-center sm:w-[120%] md:w-[100%] lg:w-[60%] mb-[60px]">
+      <div className="2xl:w-[1200px] w-full h-[1187px] pt-16 md:px-0 sm:pl-12">
+        <div className="sm:flex items-center sm:w-[120%] md:w-[100%] lg:w-[60%] mb-[60px] ">
           {isMobile ?
             ""
             :
@@ -72,7 +72,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="md:flex flex-wrap justify-between md:justify-center lg:justify-around 2xl:justify-start 2xl:px-[150px] lg:w-full content-start h-[870px] overflow-y-scroll">
+        <div className="md:flex flex-wrap lg:justify-between md:justify-center content-start h-[870px] overflow-y-scroll">
           {questionData.map((data, index) => (
             <QuestionBox
               key={index}

@@ -124,7 +124,7 @@ const SignUpContent = () => {
         </div>
         <button
           type="submit"
-          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full mt-14 sm:ml-[60%] md:ml-[65%] lg:ml-[70%] ml-[60%]"
+          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full mt-14 sm:ml-[60%] md:ml-[65%] lg:ml-[70%] ml-[58%]"
         >
           <p className="text-white">Submit</p>
         </button>

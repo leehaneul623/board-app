@@ -92,7 +92,7 @@ const WriteContent = () => {
         }}
       ></textarea>
       <button
-        className="sm:w-[150px] w-[120px] sm:h-[60px] h-[50px] bg-[#49A9E8] rounded-full sm:mt-14 mt-12 sm:ml-[70%] md:ml-[80%] ml-[68%]"
+        className="sm:w-[150px] w-[120px] sm:h-[60px] h-[50px] bg-[#49A9E8] rounded-full sm:mt-14 mt-12 sm:ml-[70%] md:ml-[80%] ml-[58%]"
         onClick={writeCheck}
       >
         <p className="text-white">Submit</p>

@@ -119,7 +119,7 @@ const ModifyContent = () => {
           }}
         ></textarea>
       </div>
-      <div className="flex mt-14 sm:ml-[45%] md:ml-[50%] lg:ml-[60%] ml-[45%]">
+      <div className="flex justify-end mt-14">
         <button
           onClick={postCheck}
           className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full"
@@ -128,7 +128,7 @@ const ModifyContent = () => {
         </button>
         <button
           onClick={deleteCheck}
-          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full ml-14"
+          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full ml-[10%]"
         >
           <p className="text-white">Delete</p>
         </button>
