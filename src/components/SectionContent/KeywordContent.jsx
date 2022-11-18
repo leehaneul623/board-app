@@ -9,7 +9,8 @@ import { useMediaQuery } from 'react-responsive'
 const KeywordContent = () => {
   const [search, setSearch] = useState([])
   const { keyword } = useParams()
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
   const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
 
   useEffect(() => {
@@ -21,11 +22,18 @@ const KeywordContent = () => {
       })
       .then((res) => {
         setSearch(res.data)
-        setLoading(false)
+        setIsLoading(false)
       })
   }, [])
 
-  if (loading) {
+  if (error) {
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <p className="text-rose-500 text-2xl">{error.message}</p>
+      </div>
+    )
+  }
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center w-full h-full">
         <p className="text-rose-500 text-2xl">
@@ -35,9 +43,10 @@ const KeywordContent = () => {
       </div>
     )
   }
+
   return (
-    <div className='2xl:w-[90%] w-[85%]'>
-      <div className="2xl:w-[1200px] w-full h-[1187px] pt-16 md:px-0 sm:px-12">
+    <div className='w-[85%] 2xl:w-[90%]'>
+      <div className="w-full 2xl:w-[1200px] h-[1187px] pt-16 md:px-0 sm:pl-12">
         <div className="sm:flex items-center sm:w-[120%] md:w-[100%] lg:w-[60%] mb-[60px]">
           {isMobile ?
             ""
@@ -49,7 +58,7 @@ const KeywordContent = () => {
             <p className='flex items-center'>현재 검색어는 &nbsp; <span className='text-2xl'> {keyword} </span> &nbsp; 입니다.</p>
           </div>
         </div>
-        <div className="md:flex flex-wrap justify-between md:justify-center lg:justify-around 2xl:justify-start 2xl:px-[150px] lg:w-full content-start h-[870px] overflow-y-scroll">
+        <div className="md:flex flex-wrap md:justify-center lg:justify-between content-start h-[870px] overflow-y-scroll">
           {search.map((data, index) => (
             <QuestionBox
               key={index}

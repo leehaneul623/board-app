@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import { userState } from '../../Recoil'
 
-
 const WriteContent = () => {
   const navigate = useNavigate()
   const userInfo = useRecoilValue(userState)
@@ -17,6 +16,7 @@ const WriteContent = () => {
     writeCategory: '',
   })
   const [item, setItem] = useState('none')
+
   const writeCheck = () => {
     if (writeData.writeTitle == "") {
       alert('제목을 입력해주세요.')
@@ -30,8 +30,6 @@ const WriteContent = () => {
       navigate("/")
     }
   }
-
-  console.log(userInfo)
 
   const writeCreate = async (event) => {
     setWriteData(() => {
@@ -51,11 +49,11 @@ const WriteContent = () => {
   }
 
   return (
-    <div className="sm:w-[1200px] md:w-[80%] w-full h-[1187px] p-[5%] lg:ml-0">
+    <div className="w-full sm:w-[1200px] md:w-[80%] h-[1187px] p-[5%] lg:ml-0">
       <div className="lg:flex sm:justify-between mt-16 sm:ml-[5%] ml-[5%] text-xl">
         <div className="flex mt-4">
           <BsChatDots />
-          <p className="ml-4 lg:mb-0 mb-6">자유롭게 작성해주세요.</p>
+          <p className="ml-4 mb-6 lg:mb-0">자유롭게 작성해주세요.</p>
         </div>
         <select
           className="select select-info w-full max-w-xs"
@@ -82,7 +80,7 @@ const WriteContent = () => {
       />
       <textarea
         type="text"
-        className="w-[100%] sm:h-[50%] h-[45%] bg-white rounded-3xl mt-10 pl-4 p-4 sm:ml-[5%] md:ml-0"
+        className="w-[100%] h-[45%] sm:h-[50%] bg-white rounded-3xl mt-10 pl-4 p-4 sm:ml-[5%] md:ml-0"
         placeholder="내용을 입력해주세요."
         value={writeData.writeContent}
         onChange={(e) => {
@@ -92,7 +90,7 @@ const WriteContent = () => {
         }}
       ></textarea>
       <button
-        className="sm:w-[150px] w-[120px] sm:h-[60px] h-[50px] bg-[#49A9E8] rounded-full sm:mt-14 mt-12 sm:ml-[70%] md:ml-[80%] ml-[58%]"
+        className="w-[120px] sm:w-[150px] h-[50px] sm:h-[60px] bg-[#49A9E8] rounded-full mt-12 sm:mt-14 ml-[58%] sm:ml-[70%] md:ml-[80%]"
         onClick={writeCheck}
       >
         <p className="text-white">Submit</p>

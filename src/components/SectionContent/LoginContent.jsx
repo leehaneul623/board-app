@@ -40,7 +40,7 @@ const LoginContent = () => {
           <div className="text-center lg:text-left pb-6">
             <h1 className="text-5xl font-bold">Login now!</h1>
           </div>
-          <div className="card flex-shrink-0 w-full sm:w-[500px] w-[300px] shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-[300px] sm:w-[500px] shadow-2xl bg-base-100">
             <div className="card-body">
               <div className="form-control">
                 <label className="label">

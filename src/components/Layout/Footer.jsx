@@ -4,6 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 
 const Footer = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 639px)' })
+
   return (
     <span>
       {isMobile ?

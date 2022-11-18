@@ -22,16 +22,15 @@ const Header = () => {
     }
   };
 
-
   return (
-    <div className="sm:w-full w-full h-[90px] bg-[#F6F3F3] shadow-lg">
+    <div className="w-full h-[90px] bg-[#F6F3F3] shadow-lg">
       <div className="flex flex-row justify-between items-center w-full h-20">
         <Link to="/">
           <div>
-            <img src="../board-img/logo.jpg" alt="" className='sm:w-[150px] w-[100px] sm:h-[10%] h-[70px] items-start' />
+            <img src="../board-img/logo.jpg" alt="" className='w-[100px] sm:w-[150px] h-[70px] sm:h-[10%] items-start' />
           </div>
         </Link>
-        {isMobile ? "" : <div className="sm:w-[30%] w-[35%] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
+        {isMobile ? "" : <div className="w-[35%] sm:w-[30%] h-[60px] bg-[#F6F3F3] border-solid border-4 border-gray rounded-full shadow-md">
           <form
             className="flex items-center justify-between"
             onSubmit={(e) => {

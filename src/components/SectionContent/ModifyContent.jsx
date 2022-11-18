@@ -96,8 +96,8 @@ const ModifyContent = () => {
   }
 
   return (
-    <div className="sm:w-[1200px] md:w-[80%] w-full h-[1187px] pt-20 p-[5%] lg:ml-0">
-      <div className="flex flex-row sm:ml-[5%] md:ml-0 mt-16 sm:ml-[5%] ml-[5%] text-xl">
+    <div className="w-full sm:w-[1200px] md:w-[80%] h-[1187px] pt-20 p-[5%] lg:ml-0">
+      <div className="flex flex-row ml-[5%] sm:ml-[5%] md:ml-0 mt-16 text-xl">
         <BsChatDots />
         <p className="ml-4">자유롭게 수정해주세요.</p>
       </div>
@@ -122,13 +122,13 @@ const ModifyContent = () => {
       <div className="flex justify-end mt-14">
         <button
           onClick={postCheck}
-          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full"
+          className="w-[120px] sm:w-[150px] h-[60px] bg-[#49A9E8] rounded-full"
         >
           <p className="text-white">Edit</p>
         </button>
         <button
           onClick={deleteCheck}
-          className="sm:w-[150px] w-[120px] h-[60px] bg-[#49A9E8] rounded-full ml-[10%]"
+          className="w-[120px] sm:w-[150px] h-[60px] bg-[#49A9E8] rounded-full ml-[10%]"
         >
           <p className="text-white">Delete</p>
         </button>

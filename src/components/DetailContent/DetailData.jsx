@@ -5,7 +5,6 @@ import { useRef } from 'react'
 
 const DetailData = ({ questionTitle, questionContent }) => {
   const ref = useRef(null)
-
   const [contentHeight, setContentHeight] = useState(0)
   const boxHeight = () => {
     setContentHeight(ref.current.offsetHeight)

@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="flex flex-row justify-center md:justify-between 2xl:w-[1280px] w-[90%] m-auto">
+      <div className="flex flex-row justify-center md:justify-between w-[90%] 2xl:w-[1280px] m-auto">
         <Menu />
         {children}
       </div>

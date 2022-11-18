@@ -7,7 +7,7 @@ const MyPageContent = () => {
     const userInfo = useRecoilValue(userState)
 
     return (
-        <div className="sm:w-[1100px] w-full h-[1187px] p-[10%]">
+        <div className="w-full sm:w-[1100px] h-[1187px] p-[10%]">
             <div className='flex mt-24'>
                 <img src="../board-img/profile.jpg" alt="" className='w-[40%] h-[70%]' />
                 <b className='text-xl mt-[30%] ml-[5%]'>{`${userInfo.data.nickname}`} 님의 Page</b>
