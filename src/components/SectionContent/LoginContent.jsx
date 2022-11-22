@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { userState } from '../../Recoil'
-import { backand_url } from '../../util/url'
+import { url } from '../../util/url'
 
 const LoginContent = () => {
   const [memberId, setMemberId] = useState('')
@@ -19,7 +19,7 @@ const LoginContent = () => {
           e.preventDefault()
           try {
             const data = await axios({
-              url: `${backand_url}/user/login`,
+              url: `${url}/api/v1/user/login`,
               method: 'POST',
               data: {
                 memberId,

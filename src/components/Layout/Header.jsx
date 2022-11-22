@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill, BsCaretLeftFill } from 'react-icons/bs'
+import { BsSearch, BsBoxArrowInRight, BsPersonPlusFill } from 'react-icons/bs'
 import { BiHappy } from "react-icons/bi";
 import { BiEditAlt } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'

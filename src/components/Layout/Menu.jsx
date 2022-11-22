@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaDribbble } from 'react-icons/fa'
 import { FiMusic } from 'react-icons/fi'
 import { BiBookBookmark } from 'react-icons/bi'
 import { BsCupStraw, BsPeopleFill, BsBoxArrowLeft } from 'react-icons/bs'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { userState } from '../../Recoil'
 import { useRecoilState } from 'recoil'
-import List from '../../routes/List'
 import { useMediaQuery } from 'react-responsive'
 
 const Menu = () => {

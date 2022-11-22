@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Link, UNSAFE_DataRouterStateContext, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import DetailData from '../DetailContent/DetailData'
@@ -19,7 +19,6 @@ const DetailContent = () => {
   const [answerList, setAnswerList] = useState([])
   const [titleValue, setTitleValue] = useState('')
   const [contentValue, setContentValue] = useState('')
-  const [user, setUser] = useRecoilState(userState)
   const [author, setAuthor] = useState()
 
   const { questionId } = useParams()

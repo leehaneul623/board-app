@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { BsFillEmojiSmileFill, BsFillHeartFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
-import { backand_url } from '../../util/url'
+import { url } from '../../util/url'
 
 const SignUpContent = () => {
   const [memberId, setMemberId] = useState('')
@@ -16,7 +16,7 @@ const SignUpContent = () => {
   const join = async (e) => {
     try {
       const data = await axios({
-        url: `${backand_url}/user/join`,
+        url: `${url}/api/v1/user/join`,
         method: 'POST',
         data: {
           memberId,
