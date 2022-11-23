@@ -15,11 +15,7 @@ const KeywordContent = () => {
 
   useEffect(() => {
     axios
-      .get(`${url}/question/search`, {
-        params: {
-          keyword: keyword,
-        },
-      })
+      .get(`${url}/question/search?keyword=${keyword}`)
       .then((res) => {
         setSearch(res.data)
         setIsLoading(false)
