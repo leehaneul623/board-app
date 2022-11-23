@@ -19,7 +19,6 @@ const KeywordContent = () => {
       .then((res) => {
         setSearch(res.data)
         setIsLoading(false)
-        setError(res)
       })
   }, [])
 

@@ -62,7 +62,7 @@ const Home = () => {
             <div className="w-[200px]">
               <img src="../board-img/logo.jpg" alt="" />
             </div>}
-          <div className="sm:w-[300px]">
+          <div className="sm:w-[350px]">
             {userInfo == null ? '' : <b className='text-xl'>{`${userInfo.data.nickname}`} 님</b>}
             <p>익명 소통 커뮤니티 입니다.</p>
             <div className="flex">
