@@ -80,7 +80,7 @@ const WriteContent = () => {
       />
       <textarea
         type="text"
-        className="w-[100%] h-[45%] sm:h-[50%] bg-white rounded-3xl mt-10 pl-4 p-4 sm:ml-[5%] md:ml-0"
+        className="w-[100%] h-[45%] sm:h-[50%] bg-white rounded-3xl mt-10 pl-4 p-4 sm:ml-[5%] md:ml-0 whitespace-pre-wrap"
         placeholder="내용을 입력해주세요."
         value={writeData.writeContent}
         onChange={(e) => {
