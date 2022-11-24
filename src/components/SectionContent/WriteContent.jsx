@@ -49,7 +49,7 @@ const WriteContent = () => {
   }
 
   return (
-    <div className="w-full sm:w-[1200px] md:w-[80%] h-[1187px] p-[5%] lg:ml-0">
+    <div className="w-full sm:w-[1200px] md:w-[80%] h-[1187px] p-[5%]">
       <div className="lg:flex sm:justify-between mt-16 sm:ml-[5%] ml-[5%] text-xl">
         <div className="flex mt-4">
           <BsChatDots />
@@ -89,13 +89,14 @@ const WriteContent = () => {
           })
         }}
       ></textarea>
-      <button
-        className="w-[120px] sm:w-[150px] h-[50px] sm:h-[60px] bg-[#49A9E8] rounded-full mt-12 sm:mt-14 ml-[58%] sm:ml-[70%] md:ml-[80%]"
-        onClick={writeCheck}
-      >
-        <p className="text-white">Submit</p>
-      </button>
-
+      <div className='flex justify-end'>
+        <button
+          className="w-[120px] sm:w-[150px] h-[45px] sm:h-[45px] bg-[#49A9E8] rounded-full mt-12 sm:mt-14"
+          onClick={writeCheck}
+        >
+          <p className="text-white">Submit</p>
+        </button>
+      </div>
     </div>
   )
 }

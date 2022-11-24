@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../util/url'
 import { CgSpinner } from 'react-icons/cg'
 import DetailData from '../DetailContent/DetailData'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { userState } from '../../Recoil'
 
 const DetailContent = () => {
@@ -100,67 +100,65 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="w-full sm:w-[1200px] md:w-[80%] py-20 pt-20 p-[5%] lg:ml-0">
-      <div className="flex justify-end w-[90%]">
+    <div className="w-full sm:w-[1200px] md:w-[80%] py-20 pt-20 p-[5%]">
+      <div className="flex justify-end w-[100%]">
         {userInfo !== null ?
           (<div className='inline-block'>
             {
               userInfo.data.memberId == author ?
-                <Link to={`/modify/${questionId}`}>
-                  <button className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full">
+                <div>
+                  <Link to={`/modify/${questionId}`}>
+                    <button className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-4">
+                      <p className="text-white">Edit</p>
+                    </button>
+                  </Link>
+                  <button
+                    onClick={deleteCheck}
+                    className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+                  >
+                    <p className="text-white">Delete</p>
+                  </button>
+                </div>
+                :
+                <div>
+                  <button
+                    className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-4"
+                    onClick={() => {
+                      alert('접근 권한이 없습니다.')
+                    }}
+                  >
                     <p className="text-white">Edit</p>
                   </button>
-                </Link> :
-                <button
-                  className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
-                  onClick={() => {
-                    alert('접근 권한이 없습니다.')
-                  }}
-                >
-                  <p className="text-white">Edit</p>
-                </button>
+                  <button
+                    className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+                    onClick={() => {
+                      alert('접근 권한이 없습니다.')
+                    }}
+                  >
+                    <p className="text-white">Delete</p>
+                  </button>
+                </div>
             }
           </div>)
           : (
-            <button
-              className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
-              onClick={() => {
-                alert('접근 권한이 없습니다.')
-              }}
-            >
-              <p className="text-white">Edit</p>
-            </button>
-          )}
-        {userInfo !== null ?
-          (<div className='inline-block'>
-            {
-              userInfo.data.memberId == author ?
-                <button
-                  onClick={deleteCheck}
-                  className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full ml-[10%]"
-                >
-                  <p className="text-white">Delete</p>
-                </button>
-                :
-                <button
-                  className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full ml-[10%]"
-                  onClick={() => {
-                    alert('접근 권한이 없습니다.')
-                  }}
-                >
-                  <p className="text-white">Delete</p>
-                </button>
-            }
-          </div>)
-          : (
-            <button
-              className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full ml-[10%]"
-              onClick={() => {
-                alert('접근 권한이 없습니다.')
-              }}
-            >
-              <p className="text-white">Delete</p>
-            </button>
+            <div>
+              <button
+                className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full mr-4"
+                onClick={() => {
+                  alert('접근 권한이 없습니다.')
+                }}
+              >
+                <p className="text-white">Edit</p>
+              </button>
+              <button
+                className="w-[100px] sm:w-[150px] h-[45px] bg-[#ABDEFF] rounded-full"
+                onClick={() => {
+                  alert('접근 권한이 없습니다.')
+                }}
+              >
+                <p className="text-white">Delete</p>
+              </button>
+            </div>
           )}
       </div>
       <DetailData

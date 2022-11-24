@@ -122,13 +122,13 @@ const ModifyContent = () => {
       <div className="flex justify-end mt-14">
         <button
           onClick={postCheck}
-          className="w-[120px] sm:w-[150px] h-[60px] bg-[#49A9E8] rounded-full"
+          className="w-[120px] sm:w-[150px] h-[45px] bg-[#49A9E8] rounded-full"
         >
           <p className="text-white">Edit</p>
         </button>
         <button
           onClick={deleteCheck}
-          className="w-[120px] sm:w-[150px] h-[60px] bg-[#49A9E8] rounded-full ml-[10%]"
+          className="w-[120px] sm:w-[150px] h-[45px] bg-[#49A9E8] rounded-full ml-[5%]"
         >
           <p className="text-white">Delete</p>
         </button>
