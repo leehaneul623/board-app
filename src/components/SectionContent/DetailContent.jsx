@@ -100,7 +100,7 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="w-full sm:w-[1200px] md:w-[80%] py-20 pt-20 p-[5%]">
+    <div className="w-full sm:w-[1200px] md:w-[80%] h-[1187px] py-20 pt-20 p-[5%]">
       <div className="flex justify-end w-[100%]">
         {userInfo !== null ?
           (<div className='inline-block'>
