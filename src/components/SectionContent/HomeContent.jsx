@@ -23,7 +23,6 @@ const Home = () => {
         method: 'GET',
       })
       setQuestionData(json.data)
-      console.log(json)
       setIsLoading(false)
     } catch (e) {
       setError(e)
