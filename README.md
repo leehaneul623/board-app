@@ -33,7 +33,7 @@
 * Taliwind
 
 ## 📝 Description
-스프링부트(JPA)와 React를 이용한 익명 소통 커뮤니티 프로젝트
+Spring Boot(JPA)와 React를 이용한 익명 소통 커뮤니티 프로젝트
 
 ## 📝 Development Environment
 * CPU : ?
