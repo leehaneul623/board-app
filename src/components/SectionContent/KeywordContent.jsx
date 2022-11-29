@@ -20,6 +20,7 @@ const KeywordContent = () => {
         setSearch(res.data)
         setIsLoading(false)
       })
+    window.location.replace(`/#/keyword/` + keyword)
   }, [])
 
   if (error) {

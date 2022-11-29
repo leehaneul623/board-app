@@ -19,17 +19,17 @@ const DetailData = ({ questionTitle, questionContent }) => {
       <div className="leading-[75px] w-[100%] h-[75px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10">
         <p className="text-lg p-6">{questionTitle}</p>
       </div>
-      <pre
+      <div
         className={
           contentHeight > 600
-            ? 'w-[100%] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10 whitespace-pre-wrap'
-            : 'w-[100%] h-[600px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10 whitespace-pre-wrap'
+            ? 'w-[100%] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10'
+            : 'w-[100%] h-[600px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10'
         }
       >
-        <p ref={ref} className="text-lg p-4">
+        <p ref={ref} className="text-lg p-4 whitespace-pre-wrap">
           {questionContent}
         </p>
-      </pre>
+      </div>
     </div>
   )
 }

@@ -78,7 +78,7 @@ const WriteContent = () => {
           })
         }}
       />
-      <pre
+      <textarea
         type="text"
         className="w-[100%] h-[45%] sm:h-[50%] bg-white rounded-3xl mt-10 pl-4 p-4 sm:ml-[5%] md:ml-0 whitespace-pre-wrap"
         placeholder="내용을 입력해주세요."
@@ -88,7 +88,7 @@ const WriteContent = () => {
             return { ...prev, writeContent: e.target.value }
           })
         }}
-      ></pre>
+      ></textarea>
       <div className='flex justify-end'>
         <button
           className="w-[120px] sm:w-[150px] h-[45px] sm:h-[45px] bg-[#49A9E8] rounded-full mt-12 sm:mt-14"

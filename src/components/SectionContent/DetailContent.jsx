@@ -76,6 +76,7 @@ const DetailContent = () => {
     } else {
       answerCreate()
       alert('댓글 작성이 완료되었습니다.')
+      setAnswerValue("")
       detailContents()
     }
   }
@@ -100,7 +101,7 @@ const DetailContent = () => {
   }
 
   return (
-    <div className="w-full sm:w-[1200px] md:w-[80%] h-[1187px] py-20 pt-20 p-[5%]">
+    <div className="w-full sm:w-[1200px] md:w-[80%] min-h-[1187px] py-20 pt-20 p-[5%]">
       <div className="flex justify-end w-[100%]">
         {userInfo !== null ?
           (<div className='inline-block'>
@@ -165,11 +166,15 @@ const DetailContent = () => {
         questionTitle={detailData.title}
         questionContent={detailData.content}
       />
-      <form className="flex flex-row mt-10 ">
+      <form className="flex flex-row mt-10 "
+        onSubmit={() => {
+          answerCheck()
+        }}>
         <input
           type="text"
           placeholder="댓글을 작성하려면 로그인을 해주세요."
           className="flex items-center w-[75%] sm:w-[80%] md:w-[85%] h-[58px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 p-6 mb-8"
+          value={answerValue}
           onClick={() => {
             if (userInfo.name === '') {
               alert('댓글을 작성하려면 로그인을 해주세요.')
@@ -181,18 +186,15 @@ const DetailContent = () => {
         />
         <button
           className="w-[100px] sm:w-[150px] h-[58px] bg-[#ABDEFF] rounded-full ml-6"
-          onClick={() => {
-            answerCheck()
-          }}
         >
           <p className="text-white">Submit</p>
         </button>
       </form>
-      <div>
+      <div className='h-auto'>
         {answerList.map((data, index) => (
           <div
             key={index}
-            className="flex items-center w-[100%] h-[58px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 p-6 mt-4"
+            className="flex items-center w-[100%]  bg-white rounded-3xl sm:ml-[5%] md:ml-0 p-6 mt-4"
           >
             <b className="pr-6 border-r-2">{data.nickname}</b>
             <p className="pl-6">{data.content}</p>

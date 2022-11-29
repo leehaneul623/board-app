@@ -112,7 +112,7 @@ const ModifyContent = () => {
         />
         <textarea
           type="text"
-          className="w-[100%] h-[600px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10 pl-4 p-4 text-lg overflow-y-scroll"
+          className="w-[100%] h-[600px] bg-white rounded-3xl sm:ml-[5%] md:ml-0 mt-10 pl-4 p-4 text-lg overflow-y-scroll whitespace-pre-wrap"
           value={contentValue}
           onChange={(e) => {
             setContentValue(e.target.value)
