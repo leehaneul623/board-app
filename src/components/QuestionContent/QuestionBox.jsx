@@ -10,8 +10,8 @@ const QuestionBox = ({ questionId, questionTitle, questionRegDate }) => {
           <img src="../board-img/profile.jpg" alt="" className='w-[45%] sm:w-[50%] h-[50%] sm:h-[100%] sm:ml-10 py-6' />
           <div className="mt-20 mb-4 mr-4 sm:mt-24 sm:mb-0 sm:mr-10 ">
             <h1 className="text-lg font-semibold mb-3 text-right">
-              {questionTitle && questionTitle.length > 8
-                ? `${questionTitle.slice(0, 8)}...`
+              {questionTitle && questionTitle.length > 7
+                ? `${questionTitle.slice(0, 7)}...`
                 : `${questionTitle}`}
             </h1>
             <p className="text-right">{questionRegDate}</p>
